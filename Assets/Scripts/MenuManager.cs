@@ -5,7 +5,7 @@ public class MenuManager : MonoBehaviour
 {
     public void PlayGame()
     {
-        //SceneManager.LoadScene(1); 
+        SceneManager.LoadScene(1); 
         //not sure what scene should go next
         Debug.Log("Play!!");
     }
