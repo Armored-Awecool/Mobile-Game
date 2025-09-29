@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playableCharacter : MonoBehaviour
 {
@@ -70,6 +71,8 @@ public class playableCharacter : MonoBehaviour
             {
                 attacking = false;
                 sprite.color = Color.blue;
+                Screen.orientation = ScreenOrientation.Portrait;
+                SceneManager.LoadScene(1);
             }
 
         }
