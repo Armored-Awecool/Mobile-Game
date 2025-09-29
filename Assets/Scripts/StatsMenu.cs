@@ -27,7 +27,7 @@ public class StatsMenu : MonoBehaviour
     void Start()
     {
         UpdateUI();
-       
+
     }
 
     void UpdateUI()
