@@ -3,7 +3,7 @@ using UnityEngine;
 public class playableCharacter : MonoBehaviour
 {
 
-    bool attacking;
+    bool attacking, physAttacking, returning;
 
 
     public int attack;
@@ -18,7 +18,13 @@ public class playableCharacter : MonoBehaviour
 
     GameObject[] enemies;
 
+    GameObject targetEnemy;
+
+    Vector3 returnPosition;
+
     SpriteRenderer sprite;
+
+    public GameObject shotSpawn, bullet;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -45,7 +51,13 @@ public class playableCharacter : MonoBehaviour
                     int random = Random.Range(1, 3);
                     if (random == 1)
                     {
-                        physicalAttack();
+                        int ran = Random.Range(0, enemies.Length - 1);
+                        targetEnemy = enemies[ran];
+                        returnPosition = gameObject.transform.position;
+
+
+                        physAttacking = true;
+                        attacking = false;
                     }
                     else
                     {
@@ -61,11 +73,41 @@ public class playableCharacter : MonoBehaviour
             }
 
         }
+        else if (physAttacking == true)
+        {
+            if (targetEnemy != null)
+            {
+                gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, targetEnemy.transform.position, 20 * Time.deltaTime);
+
+                if (Vector3.Distance(gameObject.transform.position, targetEnemy.transform.position) < 1)
+                {
+                    physicalAttack(targetEnemy);
+                    physAttacking = false;
+                    returning = true;
+                }
+            }
+            else
+            {
+                returning = true;
+                physAttacking = false;
+            }
+            }
+        else if (returning == true)
+        {
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, returnPosition, 20 * Time.deltaTime);
+
+            if (gameObject.transform.position == returnPosition)
+            {
+                returning = false;
+                attacking = true;
+                attackTimer = Time.time;
+            }
+        }
     }
 
-    void physicalAttack()
+    void physicalAttack(GameObject enemy)
     {
-        Debug.Log(attack);
+        /*Debug.Log(attack);
 
         if (enemies.Length == 1)
         {
@@ -76,11 +118,13 @@ public class playableCharacter : MonoBehaviour
             int random = Random.Range(0, enemies.Length - 1);
             
             enemies[random].SendMessage("takeDamage", attack);
-        }
+        }*/
+
+        enemy.SendMessage("takeDamage", attack);
+        Debug.Log(targetEnemy);
 
 
 
-        attackTimer = Time.time;
     }
 
     void magicAttack()
@@ -88,7 +132,7 @@ public class playableCharacter : MonoBehaviour
         Debug.Log(magic);
 
 
-        if (enemies.Length == 1)
+        /*if (enemies.Length == 1)
         {
             enemies[0].SendMessage("takeDamage", magic);
         }
@@ -99,8 +143,17 @@ public class playableCharacter : MonoBehaviour
             enemies[random].SendMessage("takeDamage", magic);
         }
 
+        attackTimer = Time.time;*/
+
+        if (gameObject != null)
+        {
+            GameObject newBullet = Instantiate(bullet, shotSpawn.transform.position, shotSpawn.transform.rotation);
+            newBullet.SendMessage("setDamage", magic);
+        }
+
         attackTimer = Time.time;
-    }
+
+    }   
 
 
 
@@ -113,6 +166,7 @@ public class playableCharacter : MonoBehaviour
             sprite.color = Color.red;
             attacking = false;
         }
+        Debug.Log("Player took:" + dam + " damage");
     }
 
     void classAttack(int atk)
