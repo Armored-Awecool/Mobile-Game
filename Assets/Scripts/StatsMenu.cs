@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using UnityEditor.UI;
 using UnityEngine.SceneManagement;
 public class StatsMenu : MonoBehaviour
 {
