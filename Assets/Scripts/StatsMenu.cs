@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEditor.UI;
+using UnityEngine.SceneManagement;
 public class StatsMenu : MonoBehaviour
 {
     public TextMeshProUGUI attackText;
@@ -26,7 +27,7 @@ public class StatsMenu : MonoBehaviour
     void Start()
     {
         UpdateUI();
-       
+
     }
 
     void UpdateUI()
@@ -97,5 +98,11 @@ public class StatsMenu : MonoBehaviour
         // {
         //     Debug.Log("Not enough currency!");
         // }
+    }
+
+    public void loadGame()
+    {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        SceneManager.LoadScene(2);
     }
 }
