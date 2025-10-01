@@ -12,6 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Updates.unity
     guid: 99f9739193a48274b85990124cb7b029
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/MainMenu.unity
     guid: 81a4c87919040204196310462caa767e
   - enabled: 1
@@ -24,6 +25,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Updates.unity
     guid: 99f9739193a48274b85990124cb7b029
   - enabled: 1
+=======
+>>>>>>> parent of 82d9bcd (Squashed commit of the following:)
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects:
