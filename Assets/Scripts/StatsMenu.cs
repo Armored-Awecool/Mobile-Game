@@ -99,7 +99,7 @@ public class StatsMenu : MonoBehaviour
         //     Debug.Log("Not enough currency!");
         // }
     }
-<<<<<<< HEAD
+
     public void loadGame()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
@@ -108,6 +108,6 @@ public class StatsMenu : MonoBehaviour
 }
 
 
-=======
-}
->>>>>>> parent of 82d9bcd (Squashed commit of the following:)
+
+
+
