@@ -3,7 +3,7 @@ using UnityEngine;
 public class enemy : MonoBehaviour
 {
 
-    bool attacking;
+    bool attacking, physAttacking, returning;
     public int attack;
 
     public int magic;
@@ -16,10 +16,18 @@ public class enemy : MonoBehaviour
 
     GameObject[] players;
 
+    public GameObject shotSpawn, bullet;
+
+     GameObject targetPlayer;
+
+    Vector3 returnPosition;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         attackTimer = Time.time;
+        attacking = true;
     }
 
     // Update is called once per frame
@@ -38,7 +46,13 @@ public class enemy : MonoBehaviour
                     int random = Random.Range(1, 3);
                     if (random == 1)
                     {
-                        physicalAttack();
+                        int ran = Random.Range(0, players.Length - 1);
+                        targetPlayer = players[ran];
+                        returnPosition = gameObject.transform.position;
+
+
+                        physAttacking = true;
+                        attacking = false;
                     }
                     else
                     {
@@ -47,18 +61,43 @@ public class enemy : MonoBehaviour
                 }
 
             }
-            else
-            {
-                attacking = false;
-            }
 
         }
+        else if (physAttacking == true)
+        {
+            if (targetPlayer != null)
+            {
+                gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, targetPlayer.transform.position, 20 * Time.deltaTime);
 
+                if (Vector3.Distance(gameObject.transform.position, targetPlayer.transform.position) < 1)
+                {
+                    physicalAttack(targetPlayer);
+                    physAttacking = false;
+                    returning = true;
+                }
+            }
+            else
+            {
+                returning = true;
+                physAttacking = false;
+            }
+            }
+        else if (returning == true)
+        {
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, returnPosition, 20 * Time.deltaTime);
+
+            if (gameObject.transform.position == returnPosition)
+            {
+                returning = false;
+                attacking = true;
+                attackTimer = Time.time;
+            }
+        }
     }
 
-    void physicalAttack()
+    void physicalAttack(GameObject player)
     {
-        Debug.Log(attack);
+        /*Debug.Log(attack);
 
         if (players.Length == 1)
         {
@@ -67,29 +106,25 @@ public class enemy : MonoBehaviour
         else
         {
             int random = Random.Range(0, players.Length - 1);
-
+            
             players[random].SendMessage("takeDamage", attack);
-        }
+        }*/
+
+        player.SendMessage("takeDamage", attack);
+        Debug.Log(targetPlayer);
 
 
 
-        attackTimer = Time.time;
     }
 
     void magicAttack()
     {
         Debug.Log(magic);
 
-
-        if (players.Length == 1)
+        if (gameObject != null)
         {
-            players[0].SendMessage("takeDamage", magic);
-        }
-        else
-        {
-            int random = Random.Range(0, players.Length - 1);
-
-            players[random].SendMessage("takeDamage", magic);
+            GameObject newBullet = Instantiate(bullet, shotSpawn.transform.position, shotSpawn.transform.rotation);
+            newBullet.SendMessage("setDamage", magic);
         }
 
         attackTimer = Time.time;

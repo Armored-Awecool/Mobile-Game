@@ -100,7 +100,6 @@ public class StatsMenu : MonoBehaviour
         // }
     }
 
-
     public void loadGame()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
