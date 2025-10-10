@@ -18,23 +18,38 @@ public class PlayerSelect : MonoBehaviour
     int extraSpeed;
 
     public TMP_InputField Name;
+
+    public TextMeshProUGUI attackText;
+    public TextMeshProUGUI magicText;
+    public TextMeshProUGUI defenseText;
+    public TextMeshProUGUI speedText;
+  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         extraAttack = 0; extraMagic = 0; extraDefense = 0; extraSpeed = 0;
+        sign = ' ';
+
+        //attack
+        attackText.text = "Attack: " + sign.ToString() + extraAttack.ToString();
+
+        //magic
+        magicText.text = "Magic: " + sign.ToString() + extraMagic.ToString();
+
+        //defense
+        defenseText.text = "Defense: " + sign.ToString() + extraDefense.ToString();
+
+        //speed
+        speedText.text = "Speed: " + sign.ToString() + extraSpeed.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Name.isFocused)
-        {
-            Debug.Log("Input Field is working");
-        }
 
         valueForExtra();
         valueForSign();
-
+        SetDifferentColor();
 
        
        
@@ -83,11 +98,11 @@ public class PlayerSelect : MonoBehaviour
         }
         if (IsBarbarian)
         {
-            extraAttack = 3; extraMagic = -1; extraDefense = 2; extraSpeed = 0;
+            extraAttack = 3; extraMagic = -2; extraDefense = 2; extraSpeed = 0;
         }
         if (IsThief)
         {
-            extraAttack = 1; extraMagic = -1; extraDefense = 0; extraSpeed = 3;
+            extraAttack = 1; extraMagic = 0; extraDefense = -1; extraSpeed = 3;
         }
         if (IsWizard)
         {
@@ -151,83 +166,64 @@ public class PlayerSelect : MonoBehaviour
         }
     }
 
-
-
-
-
-    private void OnGUI()
+    private void SetDifferentColor()
     {
-       
-        
         //attack
-        if(extraAttack < 0)
-        { 
-            GUI.contentColor = Color.red;
-            GUI.Label(new Rect(-301, 207, 200, 50), "Attack: " + sign + extraAttack);
+        if (extraAttack < 0)
+        {
+            attackText.color = Color.red;
         }
         else if (extraAttack > 0)
         {
-            GUI.contentColor = Color.green;
-            GUI.Label(new Rect(-301, 207, 200, 50), "Attack: " + sign + extraAttack);
+            attackText.color = Color.green;
         }
-        else 
+        else if (extraAttack == 0)
         {
-            GUI.contentColor = Color.black;
-            GUI.Label(new Rect(-301, 207, 200, 50), "Attack: " + sign + extraAttack);
+            attackText.color = Color.black;
         }
         //magic
         if (extraMagic < 0)
         {
-            GUI.contentColor = Color.red;
-            GUI.Label(new Rect(-301, 86, 200, 50), "Magic: " + sign + extraMagic);
+            magicText.color = Color.red;
         }
         else if (extraMagic > 0)
         {
-            GUI.contentColor = Color.green;
-            GUI.Label(new Rect(-301, 86, 200, 50), "Magic: " + sign + extraMagic);
+            magicText.color = Color.green;
         }
-        else 
+        else if (extraMagic == 0)
         {
-            GUI.contentColor = Color.black;
-            GUI.Label(new Rect(-301, 86, 200, 50), "Magic: " + sign + extraMagic);
+            magicText.color = Color.black;
         }
         //defense
         if (extraDefense < 0)
         {
-            GUI.contentColor = Color.red;
-            GUI.Label(new Rect(-301, -35, 200, 50), "Defense: " + sign + extraDefense);
+           defenseText.color = Color.red;
         }
         else if (extraDefense > 0)
         {
-            GUI.contentColor = Color.green;
-            GUI.Label(new Rect(-301, -35, 200, 50), "Defense: " + sign + extraDefense);
+            defenseText.color = Color.green;
         }
-        else 
+        else if (extraDefense == 0)
         {
-            GUI.contentColor = Color.black;
-            GUI.Label(new Rect(-301, -35, 200, 50), "Defense: " + sign + extraDefense);
+            defenseText.color = Color.black;
         }
         //speed
         if (extraSpeed < 0)
         {
-            GUI.contentColor = Color.red;
-            GUI.Label(new Rect(-301, -139, 200, 50), "Speed: " + sign + extraSpeed);
+           speedText.color = Color.red;
         }
         else if (extraSpeed > 0)
         {
-            GUI.contentColor = Color.green;
-            GUI.Label(new Rect(-301, -139, 200, 50), "Speed: " + sign + extraSpeed);
+            speedText.color = Color.green;
         }
-        else 
+        else if (extraSpeed == 0)
         {
-            GUI.contentColor = Color.black;
-            GUI.Label(new Rect(-301, -139, 200, 50), "Speed: " + sign + extraSpeed);
+            speedText.color = Color.black;
         }
-
-
-       
-       
-        
-
     }
+
+
+
+
+
 }
