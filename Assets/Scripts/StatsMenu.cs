@@ -103,7 +103,7 @@ public class StatsMenu : MonoBehaviour
     public void loadGame()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 }
 

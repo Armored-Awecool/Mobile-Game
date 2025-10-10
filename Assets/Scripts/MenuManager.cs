@@ -5,6 +5,7 @@ public class MenuManager : MonoBehaviour
 {
     public void PlayGame()
     {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         SceneManager.LoadScene(1); 
         //not sure what scene should go next
         Debug.Log("Play!!");
