@@ -28,29 +28,17 @@ public class PlayerSelect : MonoBehaviour
     void Start()
     {
         extraAttack = 0; extraMagic = 0; extraDefense = 0; extraSpeed = 0;
-        sign = ' ';
-
-        //attack
-        attackText.text = "Attack: " + sign.ToString() + extraAttack.ToString();
-
-        //magic
-        magicText.text = "Magic: " + sign.ToString() + extraMagic.ToString();
-
-        //defense
-        defenseText.text = "Defense: " + sign.ToString() + extraDefense.ToString();
-
-        //speed
-        speedText.text = "Speed: " + sign.ToString() + extraSpeed.ToString();
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
+       
         valueForExtra();
-        valueForSign();
         SetDifferentColor();
-
+        textForExtraStats();
        
        
     }
@@ -89,82 +77,101 @@ public class PlayerSelect : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    private void textForExtraStats()
+    {
+        //attack
+        attackText.text = "Attack: " + sign.ToString() + extraAttack.ToString();
+
+        //magic
+        magicText.text = "Magic: " + sign.ToString() + extraMagic.ToString();
+
+        //defense
+        defenseText.text = "Defense: " + sign.ToString() + extraDefense.ToString();
+
+        //speed
+        speedText.text = "Speed: " + sign.ToString() + extraSpeed.ToString();
+    }
+
     private void valueForExtra()
     {
         if (IsCivilan)
         {
             extraAttack = 1; extraMagic = -1; extraDefense = 0; extraSpeed = 2;
+           valueForSign();
 
         }
-        if (IsBarbarian)
+        else if (IsBarbarian)
         {
             extraAttack = 3; extraMagic = -2; extraDefense = 2; extraSpeed = 0;
+            valueForSign();
         }
-        if (IsThief)
+        else if (IsThief)
         {
             extraAttack = 1; extraMagic = 0; extraDefense = -1; extraSpeed = 3;
+           valueForSign();
         }
-        if (IsWizard)
+        else if (IsWizard)
         {
             extraAttack = 1; extraMagic = 3; extraDefense = -1; extraSpeed = 0;
+            valueForSign();
         }
 
     }
-    private void valueForSign()
-    {
-        //attack
-        if (extraAttack < 0)
-        {
-            sign = '-';
-        }
-        else if (extraAttack > 0)
-        {
-            sign = '+';
-        }
-        else if (extraAttack == 0)
-        {
-            sign = ' ';
-        }
-        //magic
-        if (extraMagic < 0)
-        {
-            sign = '-';
-        }
-        else if (extraMagic > 0)
-        {
-            sign = '+';
-        }
-        else if (extraMagic == 0)
-        {
-            sign = ' ';
-        }
-        //defense
-        if (extraDefense < 0)
-        {
-            sign = '-';
-        }
-        else if (extraDefense > 0)
-        {
-            sign = '+';
-        }
-        else if (extraDefense == 0)
-        {
-            sign = ' ';
-        }
-        //speed
-        if (extraSpeed < 0)
-        {
-            sign = '-';
-        }
-        else if (extraSpeed > 0)
-        {
-            sign = '+';
-        }
-        else if (extraSpeed == 0)
-        {
-            sign = ' ';
-        }
-    }
+      private void valueForSign()
+      {
+          //attack
+          if (extraAttack < 0)
+          {
+              sign = ' ';
+          }
+          else if (extraAttack > 0)
+          {
+              sign = '+';
+          }
+          else if (extraAttack == 0)
+          {
+              sign = ' ';
+          }
+          //magic
+          if (extraMagic < 0)
+          {
+              sign = ' ';
+          }
+          else if (extraMagic > 0)
+          {
+              sign = '+';
+          }
+          else if (extraMagic == 0)
+          {
+              sign = ' ';
+          }
+          //defense
+          if (extraDefense < 0)
+          {
+              sign = ' ';
+          }
+          else if (extraDefense > 0)
+          {
+              sign = '+';
+          }
+          else if (extraDefense == 0)
+          {
+              sign = ' ';
+          }
+          //speed
+          if (extraSpeed < 0)
+          {
+              sign = ' ';  
+          }
+          else if (extraSpeed > 0)
+          {
+              sign = '+';
+          }
+          else if (extraSpeed == 0)
+          {
+              sign = ' ';
+          }
+      }
 
     private void SetDifferentColor()
     {
