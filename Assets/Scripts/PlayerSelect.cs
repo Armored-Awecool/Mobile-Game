@@ -28,7 +28,8 @@ public class PlayerSelect : MonoBehaviour
     void Start()
     {
         extraAttack = 0; extraMagic = 0; extraDefense = 0; extraSpeed = 0;
-      
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+
     }
 
     // Update is called once per frame
