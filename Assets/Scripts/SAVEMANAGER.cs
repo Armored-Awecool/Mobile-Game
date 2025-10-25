@@ -48,7 +48,7 @@ public class SAVEMANAGER : MonoBehaviour
     [System.Serializable]
     public class GameProg //Class to save progression not tied to an in game character
     {
-        public int Money;
+        public int Money;//this is using totalMoneyCount from StatsMenu.
         public string EquipmentList;
 
         public GameProg()
