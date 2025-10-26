@@ -1,8 +1,15 @@
 using UnityEngine;
 using System.IO;
+using System.Collections.Generic;
 
 public class SAVEMANAGER : MonoBehaviour
 {
+    void Start()
+    {
+        LoadGame();
+        
+    }
+
     [System.Serializable]
     public class Character //Class to save the data of an in game character
     {
@@ -46,39 +53,42 @@ public class SAVEMANAGER : MonoBehaviour
     }
 
     [System.Serializable]
-    public class GameProg //Class to save progression not tied to an in game character
+    public class GameProg // Class to save progression not tied to an in game character
     {
-        public int Money;//this is using totalMoneyCount from StatsMenu.
+        public double Money; // this is using totalMoneyCount from StatsMenu.
         public string EquipmentList;
+
+        public Character Hero1;
+        public Character Hero2;
+        public Character Hero3;
+        public Character Hero4;
 
         public GameProg()
         {
+            Hero1 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
+            Hero2 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
+            Hero3 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
+            Hero4 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
             Money = 0;
             EquipmentList = "";
         }
 
-        public GameProg(int mon, string EL)
-        {
-            Money = mon;
-            EquipmentList = EL;
-        }
+        // public GameProg(double mon, List<string> EL) : this()
+        // {
+        //     Money = mon;
+        //     EquipmentList = EL;
+        // }
     }
 
-    public Character Hero1;
-    public Character Hero2;
-    public Character Hero3;
-    public Character Hero4;
-    public GameProg SaveFile;
+
+    [SerializeReference] public GameProg SaveFile;
 
     //This method would be called to make a generic save.
     //Once we've decided the base stats for each character, those zeroes can be replaced.
     //For reference it goes: Attack, Magic, Defense, Speed, HP, Equip1, Equip2, Equip3, Hat.
     public void CreateNewSave()
     {
-        Hero1 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
-        Hero2 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
-        Hero3 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
-        Hero4 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
+
         SaveFile = new GameProg();
         SaveGame(); //It saves the game right after setting the default values.
         LoadGame(); //Then it loads the new save that was just made.
@@ -88,79 +98,27 @@ public class SAVEMANAGER : MonoBehaviour
     //Turns everything into a json and saves each.
     public void SaveGame()
     {
-        string json = JsonUtility.ToJson(Hero1);
-        string FilePath = Path.Combine(Application.persistentDataPath, "Hero1.json");
-        File.WriteAllText(FilePath, json);
-
-        json = JsonUtility.ToJson(Hero2);
-        FilePath = Path.Combine(Application.persistentDataPath, "Hero2.json");
-        File.WriteAllText(FilePath, json);
-
-        json = JsonUtility.ToJson(Hero3);
-        FilePath = Path.Combine(Application.persistentDataPath, "Hero3.json");
-        File.WriteAllText(FilePath, json);
-
-        json = JsonUtility.ToJson(Hero4);
-        FilePath = Path.Combine(Application.persistentDataPath, "Hero4.json");
-        File.WriteAllText(FilePath, json);
-
-        json = JsonUtility.ToJson(SaveFile);
-        FilePath = Path.Combine(Application.persistentDataPath, "SaveFile.json");
+        string json = JsonUtility.ToJson(SaveFile, true);
+        string FilePath = Path.Combine(Application.persistentDataPath, "SaveFile.json");
         File.WriteAllText(FilePath, json);
     }
 
     //Same concept as SaveGame() just in reverse.
     public void LoadGame()
     {
-        string FilePath = Path.Combine(Application.persistentDataPath, "Hero1.json");
-        string json = File.ReadAllText(FilePath);
-        Hero1 = JsonUtility.FromJson<Character>(json);
-
-        FilePath = Path.Combine(Application.persistentDataPath, "Hero2.json");
-        json = File.ReadAllText(FilePath);
-        Hero2 = JsonUtility.FromJson<Character>(json);
-
-        FilePath = Path.Combine(Application.persistentDataPath, "Hero3.json");
-        json = File.ReadAllText(FilePath);
-        Hero3 = JsonUtility.FromJson<Character>(json);
-
-        FilePath = Path.Combine(Application.persistentDataPath, "Hero4.json");
-        json = File.ReadAllText(FilePath);
-        Hero4 = JsonUtility.FromJson<Character>(json);
-
-        FilePath = Path.Combine(Application.persistentDataPath, "SaveFile.json");
-        json = File.ReadAllText(FilePath);
-        SaveFile = JsonUtility.FromJson<GameProg>(json);
+        try
+        {
+            string FilePath = Path.Combine(Application.persistentDataPath, "SaveFile.json");
+            string json = File.ReadAllText(FilePath);
+            SaveFile = JsonUtility.FromJson<GameProg>(json);
+        }
+        catch (System.Exception)
+        {
+            SaveFile = new GameProg();
+            SaveGame();
+        }
     }
 
-
-
-    //Below are scripts that may not be needed and could be redundant. I wish I knew. Intellisense isn't working.
-
-    public Character getHero1()
-    {
-        return Hero1;
-    }
-
-    public Character getHero2()
-    {
-        return Hero2;
-    }
-
-    public Character getHero3()
-    {
-        return Hero3;
-    }
-
-    public Character getHero4()
-    {
-        return Hero4;
-    }
-
-    public GameProg getSaveFile()
-    {
-        return SaveFile;
-    }
 
 
     //------------------------------------------------------------------------------------------------------------
@@ -171,20 +129,20 @@ public class SAVEMANAGER : MonoBehaviour
 
     public void showHero1Stats()
     {
-        Debug.Log("Attack: "+Hero1.Attack);
-        Debug.Log("Magic: "+Hero1.Magic);
-        Debug.Log("Defense: "+Hero1.Defense);
-        Debug.Log("Speed: "+Hero1.Speed);
-        Debug.Log("HP: "+Hero1.Health);
-        Debug.Log("Equip1: "+Hero1.Equip1);
-        Debug.Log("Equip2: "+Hero1.Equip2);
-        Debug.Log("Equip3: "+Hero1.Equip3);
-        Debug.Log("Hat: "+Hero1.Hat);
+        Debug.Log("Attack: " + SaveFile.Hero1.Attack);
+        Debug.Log("Magic: " + SaveFile.Hero1.Magic);
+        Debug.Log("Defense: " + SaveFile.Hero1.Defense);
+        Debug.Log("Speed: " + SaveFile.Hero1.Speed);
+        Debug.Log("HP: " + SaveFile.Hero1.Health);
+        Debug.Log("Equip1: " + SaveFile.Hero1.Equip1);
+        Debug.Log("Equip2: " + SaveFile.Hero1.Equip2);
+        Debug.Log("Equip3: " + SaveFile.Hero1.Equip3);
+        Debug.Log("Hat: " + SaveFile.Hero1.Hat);
     }
 
     public void addHero1Attack()
     {
-        Hero1.Attack += 1;
+        SaveFile.Hero1.Attack += 1;
     }
 
     public void showSaveFileStats()
