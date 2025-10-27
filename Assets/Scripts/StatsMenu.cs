@@ -19,10 +19,10 @@ public class StatsMenu : MonoBehaviour
     public TextMeshProUGUI totalMoney;
 
 
-    public int attackLevel = 1;
-    public int magicLevel = 1;
-    public int defenseLevel = 1;
-    public int speedLevel = 1;
+    public int attackLevel;
+    public int magicLevel;
+    public int defenseLevel;
+    public float speedLevel;
     public double upgradeACost = 0.0;
     public double upgradeMCost = 0.0;
     public double upgradeDCost = 0.0;
@@ -32,6 +32,7 @@ public class StatsMenu : MonoBehaviour
     {
         get => SAVE.SaveFile.Money;
         set => SAVE.SaveFile.Money = value;
+        
     }
 
     public SAVEMANAGER SAVE;
@@ -48,6 +49,13 @@ public class StatsMenu : MonoBehaviour
         tooltipPanel.gameObject.SetActive(false);
         FeedbackText = "insufficient Funds\r\naka(You broke lil homie!)";
         needToStop = false;
+
+        attackLevel = SAVE.SaveFile.Hero1.Attack;
+        magicLevel = SAVE.SaveFile.Hero1.Magic;
+        defenseLevel = SAVE.SaveFile.Hero1.Defense;
+        speedLevel = SAVE.SaveFile.Hero1.Speed;
+        UpdateUI();
+         
 
     }
 
@@ -80,7 +88,8 @@ public class StatsMenu : MonoBehaviour
 
         if (TotalMoneyCount >= upgradeACost)
         {
-            attackLevel++;
+            SAVE.addHero1Attack();
+            attackLevel = SAVE.SaveFile.Hero1.Attack;
             TotalMoneyCount -= upgradeACost;
             UpdateUI();
         }
@@ -95,7 +104,8 @@ public class StatsMenu : MonoBehaviour
     {
         if (TotalMoneyCount >= upgradeMCost)
         {
-            magicLevel++;
+            SAVE.addHero1Magic();
+            magicLevel = SAVE.SaveFile.Hero1.Magic;
             TotalMoneyCount -= upgradeMCost;
             UpdateUI();
         }
@@ -109,7 +119,8 @@ public class StatsMenu : MonoBehaviour
     {
         if (TotalMoneyCount >= upgradeDCost)
         {
-            defenseLevel++;
+            SAVE.addHero1Defense();
+            defenseLevel = SAVE.SaveFile.Hero1.Defense;
             TotalMoneyCount -= upgradeDCost;
             UpdateUI();
         }
@@ -123,7 +134,8 @@ public class StatsMenu : MonoBehaviour
     {
         if (TotalMoneyCount >= upgradeSCost)
         {
-            speedLevel++;
+            SAVE.addHero1Speed();
+            speedLevel = SAVE.SaveFile.Hero1.Speed;
             TotalMoneyCount -= upgradeSCost;
             UpdateUI();
         }

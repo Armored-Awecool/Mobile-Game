@@ -5,7 +5,7 @@ public class playableCharacter : MonoBehaviour
 {
 
     bool attacking, physAttacking, returning;
-
+    public SAVEMANAGER SAVE;
 
     public int attack;
 
@@ -29,6 +29,10 @@ public class playableCharacter : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        attack = SAVE.SaveFile.Hero1.Attack;
+        magic = SAVE.SaveFile.Hero1.Magic;
+        atkSpeed = SAVE.SaveFile.Hero1.Speed;
 
         attacking = true;
         attackTimer = Time.time;

@@ -17,7 +17,7 @@ public class SAVEMANAGER : MonoBehaviour
         public int Attack;
         public int Magic;
         public int Defense;
-        public int Speed;
+        public float Speed;
         public int Health;
         //I made three equipment slots. These could go unused. Just so they exist.
         //Can add more if needed. Can stay here unused if not needed.
@@ -91,6 +91,7 @@ public class SAVEMANAGER : MonoBehaviour
     {
 
         SaveFile = new GameProg();
+        Debug.Log("New Save");
         SaveGame(); //It saves the game right after setting the default values.
         LoadGame(); //Then it loads the new save that was just made.
     }
@@ -144,6 +145,25 @@ public class SAVEMANAGER : MonoBehaviour
     public void addHero1Attack()
     {
         SaveFile.Hero1.Attack += 1;
+        SaveGame();
+    }
+
+    public void addHero1Magic()
+    {
+        SaveFile.Hero1.Magic += 1;
+        SaveGame();
+    }
+
+    public void addHero1Speed()
+    {
+        SaveFile.Hero1.Speed -= 0.05f;
+        SaveGame();
+    }
+
+    public void addHero1Defense()
+    {
+        SaveFile.Hero1.Defense += 1;
+        SaveGame();
     }
 
     public void showSaveFileStats()
