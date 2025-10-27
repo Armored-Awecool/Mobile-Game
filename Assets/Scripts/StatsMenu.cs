@@ -27,7 +27,12 @@ public class StatsMenu : MonoBehaviour
     public double upgradeDCost = 0.0;
     public double upgradeSCost = 0.0;
 
-    public double totalMoneyCount = 0;
+    public double TotalMoneyCount
+    {
+        get => SAVE.SaveFile.Money;
+        set => SAVE.SaveFile.Money = value;
+    }
+
     public SAVEMANAGER SAVE;
 
     public GameObject tooltipPanel; // Assign your UI panel for the tooltip
@@ -55,42 +60,42 @@ public class StatsMenu : MonoBehaviour
         upgradeMText.text = "Upgrade for " + upgradeMCost + "K";
         upgradeDText.text = "Upgrade for " + upgradeDCost + "K";
         upgradeSText.text = "Upgrade for " + upgradeSCost + "K";
-        totalMoney.text = "GoldAmount: " + totalMoneyCount + "K";
+        totalMoney.text = "GoldAmount: " + TotalMoneyCount + "K";
         // You would also update button text to show cost, etc.
     }
     private void Update()
     {
-        
+
     }
     public void Money()
     {
-        
-        SAVE.SaveFile.Money = (int)totalMoneyCount;
-   
+
+        SAVE.SaveFile.Money = TotalMoneyCount;
+
         UpdateUI();
     }
     public void UpgradeAttack()
     {
-       
-         if (totalMoneyCount >= upgradeACost)
+
+        if (TotalMoneyCount >= upgradeACost)
         {
             attackLevel++;
-         totalMoneyCount -= upgradeACost;
-        UpdateUI();
+            TotalMoneyCount -= upgradeACost;
+            UpdateUI();
         }
         else
         {
             ShowTooltip(FeedbackText);
             needToStop = true;
         }
-     
+
     }
     public void UpgradeMagic()
     {
-        if (totalMoneyCount >= upgradeMCost)
+        if (TotalMoneyCount >= upgradeMCost)
         {
             magicLevel++;
-            totalMoneyCount -= upgradeMCost;
+            TotalMoneyCount -= upgradeMCost;
             UpdateUI();
         }
         else
@@ -101,10 +106,10 @@ public class StatsMenu : MonoBehaviour
     }
     public void UpgradeDefense()
     {
-        if (totalMoneyCount >= upgradeDCost)
+        if (TotalMoneyCount >= upgradeDCost)
         {
             defenseLevel++;
-            totalMoneyCount -= upgradeDCost;
+            TotalMoneyCount -= upgradeDCost;
             UpdateUI();
         }
         else
@@ -115,10 +120,10 @@ public class StatsMenu : MonoBehaviour
     }
     public void UpgradeSpeed()
     {
-        if (totalMoneyCount >= upgradeSCost)
+        if (TotalMoneyCount >= upgradeSCost)
         {
             speedLevel++;
-            totalMoneyCount -= upgradeSCost;
+            TotalMoneyCount -= upgradeSCost;
             UpdateUI();
         }
         else
