@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+//is prefab
 
 
 public class PlayerSelect : MonoBehaviour
@@ -23,7 +24,9 @@ public class PlayerSelect : MonoBehaviour
     public TextMeshProUGUI magicText;
     public TextMeshProUGUI defenseText;
     public TextMeshProUGUI speedText;
-  
+
+    public StatsMenu stats;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,9 +43,15 @@ public class PlayerSelect : MonoBehaviour
         valueForExtra();
         SetDifferentColor();
         textForExtraStats();
+
+        stats.attackLevel += extraAttack;
+        stats.magicLevel += extraMagic;
+        stats.defenseLevel += extraDefense;
+        stats.speedLevel += extraSpeed;
        
        
     }
+   
     public void civilanPressed()
     {
         IsCivilan = true;

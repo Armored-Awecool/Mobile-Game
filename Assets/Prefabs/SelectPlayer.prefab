@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &568547722510337881
+--- !u!1 &422367029475139352
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7546814775024292310}
-  - component: {fileID: 1051684216811933299}
+  - component: {fileID: 3279367056080541342}
+  - component: {fileID: 1194918589691621941}
   m_Layer: 0
-  m_Name: saveFile
+  m_Name: SelectPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7546814775024292310
+--- !u!4 &3279367056080541342
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568547722510337881}
+  m_GameObject: {fileID: 422367029475139352}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,22 +32,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1051684216811933299
+--- !u!114 &1194918589691621941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568547722510337881}
+  m_GameObject: {fileID: 422367029475139352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58ee3c2abf3e1324b99e79285c27dedc, type: 3}
+  m_Script: {fileID: 11500000, guid: ffab538bf7efc03438a4113ecbf6e015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SaveFile:
-    rid: -2
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+  Name: {fileID: 0}
+  attackText: {fileID: 0}
+  magicText: {fileID: 0}
+  defenseText: {fileID: 0}
+  speedText: {fileID: 0}
+  stats: {fileID: 6709593112149525853, guid: 4ed830d474174d84cb539f55a7594af8, type: 3}

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+//is prefab
 
 public class SAVEMANAGER : MonoBehaviour
 {
