@@ -3,6 +3,7 @@ using TMPro;
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+//is prefab
 public class StatsMenu : MonoBehaviour
 {
     public TextMeshProUGUI attackText;
