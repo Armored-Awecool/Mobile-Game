@@ -3,13 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
- /*   public void PlayGame()
+    public GameObject optionsPanel;
+    /*   public void PlayGame()
+       {
+           Screen.orientation = ScreenOrientation.LandscapeLeft;
+           SceneManager.LoadScene(1); 
+           //not sure what scene should go next
+           Debug.Log("Play!!");
+       }*/
+    private void Start()
     {
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
-        SceneManager.LoadScene(1); 
-        //not sure what scene should go next
-        Debug.Log("Play!!");
-    }*/
+        optionsPanel.gameObject.SetActive(false);
+    }
     public void contiune()//makes sure your update scene is number 2
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
@@ -27,7 +32,7 @@ public class MenuManager : MonoBehaviour
     public void OpenOptions()
     {
      
-        Debug.Log("Opening Options!");
+        optionsPanel.gameObject.SetActive(true);
     }
     public void OpenLeaderBoard()
     {
@@ -39,5 +44,10 @@ public class MenuManager : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quitting Game!"); 
+    }
+
+    public void CloseOptions()
+    {
+        optionsPanel.gameObject.SetActive(false);
     }
 }
