@@ -76,8 +76,7 @@ public class playableCharacter : MonoBehaviour
                 attacking = false;
                 sprite.color = Color.blue;
                 Screen.orientation = ScreenOrientation.LandscapeLeft;
-                SceneManager.LoadScene(2);//just make sure it is the updates scene
-
+                SceneManager.LoadScene(1);
             }
 
         }
