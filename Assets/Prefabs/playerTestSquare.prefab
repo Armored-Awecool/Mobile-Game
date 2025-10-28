@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 105424446100567936}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.895, y: -0.064, z: 0}
+  m_LocalPosition: {x: 1.262, y: -0.122, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 6159951784870980528}
   - component: {fileID: 905248527362061952}
   - component: {fileID: 8921002777287817504}
-  - component: {fileID: 2317867214854401280}
   m_Layer: 0
   m_Name: playerTestSquare
   m_TagString: Player
@@ -133,21 +132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f0e8dd46acab61469dee8a958b4912d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SAVE: {fileID: 0}
   attack: 50
   magic: 40
   atkSpeed: 0.82
   hp: 1000
   shotSpawn: {fileID: 105424446100567936}
   bullet: {fileID: 923419777556442074, guid: 132352466d6cee246937840bc3c5a6b1, type: 3}
---- !u!114 &2317867214854401280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8782275858549459908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30031cefe95844a4889fd63ae5a011ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
