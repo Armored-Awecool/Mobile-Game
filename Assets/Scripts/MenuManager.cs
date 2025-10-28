@@ -3,12 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-<<<<<<< HEAD
-    public void PlayGame()
-    {
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
-        SceneManager.LoadScene(1); 
-=======
+
+
  /*   public void PlayGame()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
@@ -27,7 +23,7 @@ public class MenuManager : MonoBehaviour
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         SceneManager.LoadScene(1);
->>>>>>> parent of 91b578a (Squashed commit of the following:)
+
         //not sure what scene should go next
         Debug.Log("Play!!");
     }
