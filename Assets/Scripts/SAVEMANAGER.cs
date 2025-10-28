@@ -31,8 +31,8 @@ public class SAVEMANAGER : MonoBehaviour
             Attack = 0;
             Magic = 0;
             Defense = 0;
-            Speed = 0;
-            Health = 0;
+            Speed = 1;
+            Health = 100;
             Equip1 = "Empty";
             Equip2 = "Empty";
             Equip3 = "Empty";
@@ -66,7 +66,7 @@ public class SAVEMANAGER : MonoBehaviour
 
         public GameProg()
         {
-            Hero1 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
+            Hero1 = new Character(0, 0, 0, 1, 100, "Empty", "Empty", "Empty", "Default");
             Hero2 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
             Hero3 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
             Hero4 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
@@ -172,8 +172,8 @@ public class SAVEMANAGER : MonoBehaviour
         Debug.Log(SaveFile.EquipmentList);
     }
 
-    public void addMoney()
+    public void addMoney(int money)
     {
-        SaveFile.Money += 1;
+        SaveFile.Money += money;
     }
 }

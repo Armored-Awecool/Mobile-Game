@@ -7,7 +7,7 @@ public class Wizard : combatClass
 
     void Start()
     {
-        attack = +4;
+        attack = -4;
 
         magic = 40;
 

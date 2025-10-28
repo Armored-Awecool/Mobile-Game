@@ -73,10 +73,7 @@ public class playableCharacter : MonoBehaviour
             }
             else
             {
-                attacking = false;
-                sprite.color = Color.blue;
-                Screen.orientation = ScreenOrientation.LandscapeLeft;
-                SceneManager.LoadScene(2);//just make sure it is the updates scene
+                //attacking = false;
 
             }
 
@@ -171,8 +168,9 @@ public class playableCharacter : MonoBehaviour
 
         if (hp <= 0)
         {
-            sprite.color = Color.red;
-            attacking = false;
+            //sprite.color = Color.red;
+            //attacking = false;
+            Destroy(this.gameObject);
         }
         Debug.Log("Player took:" + dam + " damage");
     }
