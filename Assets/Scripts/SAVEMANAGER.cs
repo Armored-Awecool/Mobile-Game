@@ -58,6 +58,7 @@ public class SAVEMANAGER : MonoBehaviour
     {
         public double Money; // this is using totalMoneyCount from StatsMenu.
         public string EquipmentList;
+        public int LevelProg; //Lists how many levels the player has beat/shows which they are on
 
         public Character Hero1;
         public Character Hero2;
@@ -72,6 +73,7 @@ public class SAVEMANAGER : MonoBehaviour
             Hero4 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
             Money = 0;
             EquipmentList = "";
+            LevelProg = 0;
         }
 
         // public GameProg(double mon, List<string> EL) : this()
@@ -170,6 +172,7 @@ public class SAVEMANAGER : MonoBehaviour
     {
         Debug.Log(SaveFile.Money);
         Debug.Log(SaveFile.EquipmentList);
+        Debug.Log(SaveFile.LevelProg);
     }
 
     public void addMoney()
