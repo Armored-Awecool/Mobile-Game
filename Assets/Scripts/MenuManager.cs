@@ -3,10 +3,31 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+<<<<<<< HEAD
     public void PlayGame()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         SceneManager.LoadScene(1); 
+=======
+ /*   public void PlayGame()
+    {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        SceneManager.LoadScene(1); 
+        //not sure what scene should go next
+        Debug.Log("Play!!");
+    }*/
+    public void contiune()//makes sure your update scene is number 2
+    {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        SceneManager.LoadScene(2);
+        //not sure what scene should go next
+        Debug.Log("Play!!");
+    }
+    public void newGame()//makes sure your update scene is number 1
+    {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        SceneManager.LoadScene(1);
+>>>>>>> parent of 91b578a (Squashed commit of the following:)
         //not sure what scene should go next
         Debug.Log("Play!!");
     }

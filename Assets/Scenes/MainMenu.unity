@@ -1188,10 +1188,14 @@ MonoBehaviour:
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_margin: {x: -56.08114, y: 0, z: -73.33746, w: 0}
 =======
   m_margin: {x: -83.512955, y: 0, z: -93.454956, w: 0}
 >>>>>>> parent of 5383f09 (Merge branch 'SKM_New_Version')
+=======
+  m_margin: {x: -83.512955, y: 0, z: -93.454956, w: 0}
+>>>>>>> parent of 91b578a (Squashed commit of the following:)
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
