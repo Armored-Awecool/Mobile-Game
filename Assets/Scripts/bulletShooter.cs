@@ -20,7 +20,7 @@ public class bulletShooter : MonoBehaviour
             enemies = GameObject.FindGameObjectsWithTag("Player");
         }
 
-        int ran = Random.Range(0, enemies.Length - 1);
+        int ran = Random.Range(0, enemies.Length);
         targetEnemy = enemies[ran];
     }
 
@@ -29,8 +29,6 @@ public class bulletShooter : MonoBehaviour
     {
         if (dam != 0)
         {
-
-
             if (targetEnemy != null)
             {
                 gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, targetEnemy.transform.position, 10 * Time.deltaTime);
