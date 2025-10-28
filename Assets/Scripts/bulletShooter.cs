@@ -27,15 +27,16 @@ public class bulletShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dam != 0)
-        {
             if (targetEnemy != null)
             {
                 gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, targetEnemy.transform.position, 10 * Time.deltaTime);
 
                 if (Vector3.Distance(gameObject.transform.position, targetEnemy.transform.position) < .05f)
-                {
-                    targetEnemy.SendMessage("takeDamage", dam);
+            {
+                    if(dam<0)
+                    {
+                     targetEnemy.SendMessage("takeDamage", dam);
+                    }
                     Destroy(gameObject);
                 }
             }
@@ -43,8 +44,6 @@ public class bulletShooter : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-        }
-
     }
 
 
