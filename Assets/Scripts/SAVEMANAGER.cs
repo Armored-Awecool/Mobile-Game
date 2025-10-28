@@ -67,7 +67,7 @@ public class SAVEMANAGER : MonoBehaviour
 
         public GameProg()
         {
-            Hero1 = new Character(0, 0, 0, 1, 100, "Empty", "Empty", "Empty", "Default");
+            Hero1 = new Character(0, 5, 0, 1, 100, "Empty", "Empty", "Empty", "Default");
             Hero2 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
             Hero3 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
             Hero4 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
