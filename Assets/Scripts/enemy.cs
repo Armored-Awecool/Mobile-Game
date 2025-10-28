@@ -1,9 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class enemy : MonoBehaviour
 {
 
     bool attacking, physAttacking, returning;
+
+    public int level;
+    public SAVEMANAGER Save;
+    public double money;
     public int attack;
 
     public int magic;
@@ -28,6 +33,13 @@ public class enemy : MonoBehaviour
     {
         attackTimer = Time.time;
         attacking = true;
+        attack = (int)(attack * level);
+        magic = (int)(magic * level);
+        hp = (int)(hp * level);
+        money = (int)(money * level);
+
+        GameObject savefile = GameObject.Find("SaveFile");
+        Save = savefile.GetComponent<SAVEMANAGER>();
     }
 
     // Update is called once per frame
@@ -46,7 +58,7 @@ public class enemy : MonoBehaviour
                     int random = Random.Range(1, 3);
                     if (random == 1)
                     {
-                        int ran = Random.Range(0, players.Length - 1);
+                        int ran = Random.Range(0, players.Length);
                         targetPlayer = players[ran];
                         returnPosition = gameObject.transform.position;
 
@@ -60,6 +72,11 @@ public class enemy : MonoBehaviour
                     }
                 }
 
+            }
+            else
+            {
+                Save.SaveGame();
+                SceneManager.LoadScene(2);
             }
 
         }
@@ -136,7 +153,13 @@ public class enemy : MonoBehaviour
 
         if (hp <= 0)
         {
+            Save.SaveFile.Money += money;
             Destroy(this.gameObject);
         }
+    }
+
+    public void setLevel(int lvl)
+    {
+        level = lvl;
     }
 }

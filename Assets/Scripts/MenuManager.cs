@@ -26,9 +26,11 @@ public class MenuManager : MonoBehaviour
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         SceneManager.LoadScene(1);
+
         //not sure what scene should go next
         Debug.Log("Play!!");
     }
+    
     public void OpenOptions()
     {
      
