@@ -65,11 +65,11 @@ public class StatsMenu : MonoBehaviour
         magicText.text = "Magic: " + magicLevel;
         defenseText.text = "Defense: " + defenseLevel;
         speedText.text = "Speed: " + speedLevel;
-        upgradeAText.text = "Upgrade for " + upgradeACost + "K";
-        upgradeMText.text = "Upgrade for " + upgradeMCost + "K";
-        upgradeDText.text = "Upgrade for " + upgradeDCost + "K";
-        upgradeSText.text = "Upgrade for " + upgradeSCost + "K";
-        totalMoney.text = "GoldAmount: " + TotalMoneyCount + "K";
+        upgradeAText.text = "Upgrade for " + FormatNumber(upgradeACost);
+        upgradeMText.text = "Upgrade for " + FormatNumber(upgradeMCost);
+        upgradeDText.text = "Upgrade for " + FormatNumber(upgradeDCost);
+        upgradeSText.text = "Upgrade for " + FormatNumber(upgradeSCost);
+        totalMoney.text = "GoldAmount: " + FormatNumber(TotalMoneyCount);
         // You would also update button text to show cost, etc.
     }
     private void Update()
@@ -88,6 +88,7 @@ public class StatsMenu : MonoBehaviour
 
         if (TotalMoneyCount >= upgradeACost)
         {
+            upgradeACost += 50;
             SAVE.addHero1Attack();
             attackLevel = SAVE.SaveFile.Hero1.Attack;
             TotalMoneyCount -= upgradeACost;
@@ -104,6 +105,7 @@ public class StatsMenu : MonoBehaviour
     {
         if (TotalMoneyCount >= upgradeMCost)
         {
+            upgradeMCost += 50;
             SAVE.addHero1Magic();
             magicLevel = SAVE.SaveFile.Hero1.Magic;
             TotalMoneyCount -= upgradeMCost;
@@ -119,6 +121,7 @@ public class StatsMenu : MonoBehaviour
     {
         if (TotalMoneyCount >= upgradeDCost)
         {
+            upgradeDCost += 50;
             SAVE.addHero1Defense();
             defenseLevel = SAVE.SaveFile.Hero1.Defense;
             TotalMoneyCount -= upgradeDCost;
@@ -134,6 +137,7 @@ public class StatsMenu : MonoBehaviour
     {
         if (TotalMoneyCount >= upgradeSCost)
         {
+            upgradeSCost += 50;
             SAVE.addHero1Speed();
             speedLevel = SAVE.SaveFile.Hero1.Speed;
             TotalMoneyCount -= upgradeSCost;
@@ -165,6 +169,28 @@ public class StatsMenu : MonoBehaviour
         yield return new WaitForSeconds(displayDuration);
         tooltipPanel.gameObject.SetActive(false);
     }
+
+
+
+    public static string FormatNumber(double num)
+    {
+        if (num >= 1000000000)
+        {
+            return (num / 1000000000D).ToString("0.#") + "B"; // Billion
+        }
+        if (num >= 1000000)
+        {
+            return (num / 1000000D).ToString("0.#") + "M"; // Million
+        }
+        if (num >= 1000)
+        {
+            return (num / 1000D).ToString("0.#") + "K"; // Thousand
+        }
+
+        return num.ToString("#,0"); // Numbers below 1000
+    }
+
+
 
 }
 
