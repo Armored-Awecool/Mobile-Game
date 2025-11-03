@@ -26,6 +26,14 @@ public class SAVEMANAGER : MonoBehaviour
         public string Equip3;
         public string Hat;
 
+        public double attackUpgrade;
+        public double magicUpgrade;
+        public double defenseUpgrade;
+        public double speedUpgrade;
+
+
+     
+
         public Character()
         {
             Attack = 0;
@@ -37,9 +45,17 @@ public class SAVEMANAGER : MonoBehaviour
             Equip2 = "Empty";
             Equip3 = "Empty";
             Hat = "Default";
+
+            //for the Upgrade MONEY amount
+            attackUpgrade = 0.0;
+            magicUpgrade = 0.0;
+            defenseUpgrade = 0.0;
+            speedUpgrade = 0.0;
+
+
         }
 
-        public Character(int atk, int mag, int def, int spd, int hp, string e1, string e2, string e3, string ha)
+        public Character(int atk, int mag, int def, int spd, int hp, string e1, string e2, string e3, string ha, double aU, double mU, double dU, double sU)
         {
             Attack = atk;
             Magic = mag;
@@ -50,6 +66,14 @@ public class SAVEMANAGER : MonoBehaviour
             Equip2 = e2;
             Equip3 = e3;
             Hat = ha;
+
+            //for the Upgrade MONEY amount
+            attackUpgrade = aU;
+            magicUpgrade = mU;
+            defenseUpgrade = dU;
+            speedUpgrade = sU;
+             
+
         }
     }
 
@@ -60,17 +84,25 @@ public class SAVEMANAGER : MonoBehaviour
         public string EquipmentList;
         public int LevelProg; //Lists how many levels the player has beat/shows which they are on
 
+        //For upgrade money Amount in StatsMenu
+        public double attackMoney;
+        public double magicMoney;
+        public double defenseMoney;
+        public double speedMoney;
+
         public Character Hero1;
         public Character Hero2;
         public Character Hero3;
         public Character Hero4;
 
+     
+
         public GameProg()
         {
-            Hero1 = new Character(0, 0, 0, 1, 100, "Empty", "Empty", "Empty", "Default");
-            Hero2 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
-            Hero3 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
-            Hero4 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
+            Hero1 = new Character(0, 0, 0, 5, 100, "Empty", "Empty", "Empty", "Default", attackMoney, magicMoney, defenseMoney, speedMoney);
+            Hero2 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default", attackMoney, magicMoney, defenseMoney, speedMoney);
+            Hero3 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default", attackMoney, magicMoney, defenseMoney, speedMoney);
+            Hero4 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default", attackMoney, magicMoney, defenseMoney, speedMoney);
             Money = 0;
             EquipmentList = "";
             LevelProg = 0;

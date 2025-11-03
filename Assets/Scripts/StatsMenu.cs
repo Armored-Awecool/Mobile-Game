@@ -23,16 +23,36 @@ public class StatsMenu : MonoBehaviour
     public int magicLevel;
     public int defenseLevel;
     public float speedLevel;
-    public double upgradeACost = 0.0;
-    public double upgradeMCost = 0.0;
-    public double upgradeDCost = 0.0;
-    public double upgradeSCost = 0.0;
+ //   public double upgradeACost = 0.0;
+  //  public double upgradeMCost = 0.0;
+  //  public double upgradeDCost = 0.0;
+  //  public double upgradeSCost = 0.0;
 
     public double TotalMoneyCount
     {
         get => SAVE.SaveFile.Money;
         set => SAVE.SaveFile.Money = value;
         
+    }
+    public double upgradeACost
+    {
+        get => SAVE.SaveFile.attackMoney;
+        set => SAVE.SaveFile.attackMoney = value;
+    }
+    public double upgradeMCost
+    {
+        get => SAVE.SaveFile.magicMoney;
+        set =>SAVE.SaveFile.magicMoney = value;
+    }
+    public double upgradeDCost
+    {
+        get =>SAVE.SaveFile.defenseMoney;
+        set => SAVE.SaveFile.defenseMoney = value;
+    }
+    public double upgradeSCost
+    {
+        get => SAVE.SaveFile.speedMoney;
+        set => SAVE.SaveFile.speedMoney = value;
     }
 
     public SAVEMANAGER SAVE;
@@ -80,6 +100,10 @@ public class StatsMenu : MonoBehaviour
     {
 
         SAVE.SaveFile.Money = TotalMoneyCount;
+        SAVE.SaveFile.attackMoney = upgradeACost;
+        SAVE.SaveFile.magicMoney = upgradeMCost;
+        SAVE.SaveFile.defenseMoney = upgradeDCost;
+        SAVE.SaveFile.speedMoney = upgradeSCost;
 
         UpdateUI();
     }
