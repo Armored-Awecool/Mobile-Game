@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class playableCharacter : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class playableCharacter : MonoBehaviour
 
     SpriteRenderer sprite;
 
+    public Slider healthBar; //The health bar object
+
     public GameObject shotSpawn, bullet;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,6 +41,14 @@ public class playableCharacter : MonoBehaviour
         attackTimer = Time.time;
 
         sprite = GetComponent<SpriteRenderer>();
+
+        ResetSlider();
+    }
+
+    public void ResetSlider() //Resets the health bar
+    {
+        healthBar.maxValue = hp;
+        healthBar.value = hp;
     }
 
     // Update is called once per frame
@@ -165,6 +176,7 @@ public class playableCharacter : MonoBehaviour
     void takeDamage(int dam)
     {
         hp -= dam;
+        healthBar.value = hp;
 
         if (hp <= 0)
         {

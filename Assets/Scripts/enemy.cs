@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class enemy : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class enemy : MonoBehaviour
 
     Vector3 returnPosition;
 
+    public Slider healthBar; //The health bar object
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,6 +43,14 @@ public class enemy : MonoBehaviour
 
         GameObject savefile = GameObject.Find("SaveFile");
         Save = savefile.GetComponent<SAVEMANAGER>();
+
+        ResetSlider();
+    }
+
+    public void ResetSlider() //Resets the health bar
+    {
+        healthBar.maxValue = hp;
+        healthBar.value = hp;
     }
 
     // Update is called once per frame
@@ -150,6 +161,7 @@ public class enemy : MonoBehaviour
     void takeDamage(int dam)
     {
         hp -= dam;
+        healthBar.value = hp;
 
         if (hp <= 0)
         {
