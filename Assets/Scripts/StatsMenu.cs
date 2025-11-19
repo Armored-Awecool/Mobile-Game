@@ -179,6 +179,12 @@ public class StatsMenu : MonoBehaviour
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         SceneManager.LoadScene(3);
     }
+    public void OpenShop()
+    {
+
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        SceneManager.LoadScene(4);
+    }
 
 
     public void ShowTooltip(string message)
