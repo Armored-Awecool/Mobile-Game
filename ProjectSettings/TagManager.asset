@@ -7,6 +7,11 @@ TagManager:
   - Enemy
   - playerBullet
   - enemyBullet
+  - HatSelection
+  - PotionSelection
+  - JewelSelection
+  - FoodSelection
+  - MainSelection
   layers:
   - Default
   - TransparentFX
