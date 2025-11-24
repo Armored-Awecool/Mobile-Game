@@ -81,6 +81,7 @@ public class SAVEMANAGER : MonoBehaviour
     public class GameProg // Class to save progression not tied to an in game character
     {
         public double Money; // this is using totalMoneyCount from StatsMenu.
+        public double Jewel; // this is using totalJewelCount from StatsMenu.
         public string EquipmentList;
         public int LevelProg; //Lists how many levels the player has beat/shows which they are on
 
@@ -104,6 +105,7 @@ public class SAVEMANAGER : MonoBehaviour
             Hero3 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
             Hero4 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
             Money = 0;
+            Jewel = 0;
             EquipmentList = "";
             LevelProg = 0;
         }

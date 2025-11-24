@@ -784,7 +784,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 170794350}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: buyDefFood
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &170794350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1169,7 +1181,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 285290222}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: buysecondJewel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &285290222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1267,14 +1291,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Gives you an over all buff for 5 minutes
 
-    +5 Defense
+    +30 Defense
 
-    +10 Attack
+    +30 Attack
 
-    +10
+    +30
     Magic
 
-    5% Speed
+    +10% Speed
 
 '
   m_isRightToLeft: 0
@@ -1557,7 +1581,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 364632950}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1019150143}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1865445107}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &364632950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1814,7 +1862,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 409276632}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: buyAtkHat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &409276632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2631,7 +2691,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 597796456}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: buyAtkFood
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &597796456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2829,7 +2901,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 652895919}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: buyfirstJewel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &652895919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3085,7 +3169,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 680394723}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1019150143}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1039100806}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &680394723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3501,7 +3609,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 768039859}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: FoodButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &768039859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3623,9 +3743,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: StatsMenu, Assembly-CSharp
-        m_MethodName: loadGame
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: GoMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3754,7 +3874,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 816498100}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: JewelButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &816498100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3913,7 +4045,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 866598533}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: HatButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &866598533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4306,7 +4450,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 940562759}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: buymagFood
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &940562759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4345,6 +4501,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940562756}
   m_CullTransparentMesh: 1
+--- !u!1 &996421329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 996421331}
+  - component: {fileID: 996421330}
+  m_Layer: 0
+  m_Name: SHOP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &996421330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996421329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca5268e902738e4691d00bc1efccecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalMoney: {fileID: 7691961875087542947}
+  totalJewel: {fileID: 1151406985}
+  SAVE: {fileID: 1051684216555511708}
+  statsMenu: {fileID: 6709593112149525853, guid: 4ed830d474174d84cb539f55a7594af8, type: 3}
+  mainPage: {fileID: 1019150143}
+  hatPage: {fileID: 1232418583}
+  potionPage: {fileID: 1039100806}
+  jewelPage: {fileID: 1105674053}
+  foodPage: {fileID: 1865445107}
+  defHatPrice: {fileID: 1309338047}
+  defHatAmount: 0
+  atkHatPrice: {fileID: 1711705156}
+  atkHatAmount: 0
+  potionPrice: {fileID: 938613705}
+  potionAmount: 0
+  firstJewelPrice: {fileID: 1168057227}
+  firstJewelAmount: 0
+  secondJewelPrice: {fileID: 380555177}
+  secondJewelAmount: 0
+  thirdJewelPrice: {fileID: 169657392}
+  thirdJewelAmount: 0
+  defFoodPrice: {fileID: 1143226329}
+  defFoodAmount: 0
+  magFoodPrice: {fileID: 1974947639}
+  magFoodAmount: 0
+  atkFoodPrice: {fileID: 1073892748}
+  atkFoodAmount: 0
+  speedFoodPrice: {fileID: 1784367194}
+  speedFoodAmount: 0
+  tooltipPanel: {fileID: 4454082667866542803}
+  tooltipText: {fileID: 2769204681507275884}
+  displayDuration: 3
+  displayDurationforPotion: 5
+  displayDurationforHats: 2
+  DefHat: {fileID: 1687538466}
+  defText: {fileID: 908272956}
+  AtkHat: {fileID: 409276631}
+  atkText: {fileID: 1599116834}
+  Potion: {fileID: 1872582742}
+  potionText: {fileID: 2032527219}
+--- !u!4 &996421331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996421329}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1008943983
 GameObject:
   m_ObjectHideFlags: 0
@@ -5744,7 +5984,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1256305449}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1232418583}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1019150143}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1256305449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6250,7 +6514,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1433034437}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: buythirdJewel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1433034437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7156,7 +7432,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1664300018}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: buyspeedFood
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1664300018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7277,7 +7565,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1687538467}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: buyDefHat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1687538467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7475,7 +7775,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1702029356}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1019150143}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1105674053}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1702029356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8047,7 +8371,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1872582743}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: buyPotion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1872582743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8962,7 +9298,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2079103942}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: PotionButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2079103942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9581,8 +9929,8 @@ RectTransform:
   - {fileID: 1039100807}
   - {fileID: 1105674054}
   - {fileID: 1865445108}
-  - {fileID: 1463525623}
   - {fileID: 934236943665944893}
+  - {fileID: 1463525623}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9699,9 +10047,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: StatsMenu, Assembly-CSharp
-        m_MethodName: loadGame
+      - m_Target: {fileID: 996421330}
+        m_TargetAssemblyTypeName: ShopScript, Assembly-CSharp
+        m_MethodName: GoUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9817,7 +10165,6 @@ GameObject:
   - component: {fileID: 7388910825883207757}
   - component: {fileID: 4829693166186415785}
   - component: {fileID: 4518084004577759917}
-  - component: {fileID: 7388910825883207758}
   m_Layer: 5
   m_Name: CanvasShop
   m_TagString: Untagged
@@ -9848,20 +10195,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &7388910825883207758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7078812617801540831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ca5268e902738e4691d00bc1efccecc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalMoney: {fileID: 7691961875087542947}
-  SAVE: {fileID: 1051684216555511708}
 --- !u!4 &7546814774766911545
 Transform:
   m_ObjectHideFlags: 0
@@ -10013,3 +10346,4 @@ SceneRoots:
   - {fileID: 1900671722}
   - {fileID: 4008645291494900642}
   - {fileID: 7546814774766911545}
+  - {fileID: 996421331}
