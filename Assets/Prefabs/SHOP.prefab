@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &790272928342241402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5733255659195885885}
+  - component: {fileID: 7707823219671362789}
+  m_Layer: 0
+  m_Name: SHOP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5733255659195885885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790272928342241402}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7707823219671362789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790272928342241402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca5268e902738e4691d00bc1efccecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalMoney: {fileID: 0}
+  totalJewel: {fileID: 0}
+  SAVE: {fileID: 0}
+  statsMenu: {fileID: 6709593112149525853, guid: 4ed830d474174d84cb539f55a7594af8, type: 3}
+  mainPage: {fileID: 0}
+  hatPage: {fileID: 0}
+  potionPage: {fileID: 0}
+  jewelPage: {fileID: 0}
+  foodPage: {fileID: 0}
+  defHatPrice: {fileID: 0}
+  defHatAmount: 0
+  atkHatPrice: {fileID: 0}
+  atkHatAmount: 0
+  potionPrice: {fileID: 0}
+  potionAmount: 0
+  firstJewelPrice: {fileID: 0}
+  firstJewelAmount: 0
+  secondJewelPrice: {fileID: 0}
+  secondJewelAmount: 0
+  thirdJewelPrice: {fileID: 0}
+  thirdJewelAmount: 0
+  defFoodPrice: {fileID: 0}
+  defFoodAmount: 0
+  magFoodPrice: {fileID: 0}
+  magFoodAmount: 0
+  atkFoodPrice: {fileID: 0}
+  atkFoodAmount: 0
+  speedFoodPrice: {fileID: 0}
+  speedFoodAmount: 0
+  tooltipPanel: {fileID: 0}
+  tooltipText: {fileID: 0}
+  displayDuration: 3
+  displayDurationforPotion: 5
+  displayDurationforHats: 2
+  DefHat: {fileID: 0}
+  defText: {fileID: 0}
+  AtkHat: {fileID: 0}
+  atkText: {fileID: 0}
+  Potion: {fileID: 0}
+  potionText: {fileID: 0}

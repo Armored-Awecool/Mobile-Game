@@ -20,7 +20,7 @@ public class MenuManager : MonoBehaviour
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         SceneManager.LoadScene(2);
         //not sure what scene should go next
-        Debug.Log("Play!!");
+      
     }
     public void newGame()//makes sure your update scene is number 1
     {
@@ -28,7 +28,7 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(1);
 
         //not sure what scene should go next
-        Debug.Log("Play!!");
+       
     }
     
     public void OpenOptions()
@@ -36,16 +36,17 @@ public class MenuManager : MonoBehaviour
      
         optionsPanel.gameObject.SetActive(true);
     }
-    public void OpenLeaderBoard()
+    public void OpenShop()
     {
 
-        Debug.Log("Opening LeaderBoard!");
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        SceneManager.LoadScene(4);
     }
 
     public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("Quitting Game!"); 
+       
     }
 
     public void CloseOptions()

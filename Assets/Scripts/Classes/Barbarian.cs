@@ -29,6 +29,7 @@ public class Barbarian : combatClass
         this.gameObject.SendMessage("classMagic", magic);
         this.gameObject.SendMessage("classAttackSpeed", atkSpeed);
         this.gameObject.SendMessage("classHealth", hp);
+        this.gameObject.SendMessage("ResetSlider"); //Resets the HP slider
     }
 
     // Update is called once per frame
