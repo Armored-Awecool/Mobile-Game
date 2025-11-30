@@ -33,7 +33,7 @@ public class bulletShooter : MonoBehaviour
 
                 if (Vector3.Distance(gameObject.transform.position, targetEnemy.transform.position) < .05f)
             {
-                    if(dam<0)
+                    if(dam>0)
                     {
                      targetEnemy.SendMessage("takeDamage", dam);
                     }
