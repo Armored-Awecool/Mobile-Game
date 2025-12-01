@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class playableCharacter : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class playableCharacter : MonoBehaviour
     public int magic;
 
     public float atkSpeed;
+
+    public int defense;
 
     public int hp;
 
@@ -39,14 +43,38 @@ public class playableCharacter : MonoBehaviour
     public Transform head;
 
     Animator animator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
-
+    {   
+        string heroName =gameObject.name;
         animator = GetComponent<Animator>();
         attack += SAVE.SaveFile.Hero1.Attack;
         magic += SAVE.SaveFile.Hero1.Magic;
         atkSpeed *= SAVE.SaveFile.Hero1.Speed;
+        hp += SAVE.SaveFile.Hero1.Health;
+        defense += SAVE.SaveFile.Hero1.Defense;
+        if(heroName == "Hero1")
+        {
+            classType = SAVE.SaveFile.Hero1.ClassType;
+            Component newComponent = gameObject.AddComponent(Type.GetType(classType));
+        }
+        else if(heroName == "Hero2")
+        {
+            classType = SAVE.SaveFile.Hero2.ClassType;
+            Component newComponent = gameObject.AddComponent(Type.GetType(classType));
+        }
+        else if(heroName == "Hero3")
+        {
+            classType = SAVE.SaveFile.Hero3.ClassType;
+            Component newComponent = gameObject.AddComponent(Type.GetType(classType));
+        }
+        else if(heroName == "Hero4")
+        {
+            classType = SAVE.SaveFile.Hero4.ClassType;
+            Component newComponent = gameObject.AddComponent(Type.GetType(classType));  
+        }
+        
 
         attacking = true;
         attackTimer = Time.time;

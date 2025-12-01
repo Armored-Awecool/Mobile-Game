@@ -26,6 +26,8 @@ public class SAVEMANAGER : MonoBehaviour
         public string Equip3;
         public string Hat;
 
+        public string ClassType;
+
         // public double attackUpgrade;
         // public double magicUpgrade;
         // public double defenseUpgrade;
@@ -55,7 +57,7 @@ public class SAVEMANAGER : MonoBehaviour
 
         }
 
-        public Character(int atk, int mag, int def, int spd, int hp, string e1, string e2, string e3, string ha)
+        public Character(int atk, int mag, int def, int spd, int hp, string e1, string e2, string e3, string ha, string cls)
         {
             Attack = atk;
             Magic = mag;
@@ -66,6 +68,7 @@ public class SAVEMANAGER : MonoBehaviour
             Equip2 = e2;
             Equip3 = e3;
             Hat = ha;
+    
 
             //for the Upgrade MONEY amount
             // attackUpgrade = aU;
@@ -100,10 +103,10 @@ public class SAVEMANAGER : MonoBehaviour
 
         public GameProg()
         {
-            Hero1 = new Character(0, 0, 0, 5, 100, "Empty", "Empty", "Empty", "Default");
-            Hero2 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
-            Hero3 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
-            Hero4 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default");
+            Hero1 = new Character(5, 5, 5, 5, 100, "Empty", "Empty", "Empty", "Default", "None");
+            Hero2 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default", "None");
+            Hero3 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default", "None");
+            Hero4 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default", "None");
             Money = 0;
             Jewel = 0;
             EquipmentList = "";

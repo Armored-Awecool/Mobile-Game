@@ -31,7 +31,6 @@ public class Wizard : combatClass
         this.gameObject.SendMessage("classAttackSpeed", atkSpeed);
         this.gameObject.SendMessage("classHealth", hp);
         this.gameObject.SendMessage("ResetSlider"); //Resets the HP slider
-        this.gameObject.SendMessage("setClass", "Wizard");
     }
 
     // Update is called once per frame
