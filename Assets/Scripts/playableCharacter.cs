@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -5,7 +6,7 @@ using UnityEngine.UI;
 public class playableCharacter : MonoBehaviour
 {
 
-    bool attacking, physAttacking, returning;
+    bool attacking, physAttacking, returning, skill;
     public SAVEMANAGER SAVE;
 
     public int attack;
@@ -16,7 +17,12 @@ public class playableCharacter : MonoBehaviour
 
     public int hp;
 
-    float attackTimer;
+    float attackTimer, skillTimer;
+
+    float skillSpeed = 30f;
+    float skillLength = 10f;
+
+    string classType;
 
     GameObject[] enemies;
 
@@ -29,16 +35,22 @@ public class playableCharacter : MonoBehaviour
     public Slider healthBar; //The health bar object
 
     public GameObject shotSpawn, bullet;
+    
+    public Transform head;
+
+    Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
-        attack = SAVE.SaveFile.Hero1.Attack;
-        magic = SAVE.SaveFile.Hero1.Magic;
-        atkSpeed = SAVE.SaveFile.Hero1.Speed;
+        animator = GetComponent<Animator>();
+        attack += SAVE.SaveFile.Hero1.Attack;
+        magic += SAVE.SaveFile.Hero1.Magic;
+        atkSpeed *= SAVE.SaveFile.Hero1.Speed;
 
         attacking = true;
         attackTimer = Time.time;
+        skillTimer = Time.time;
 
         sprite = GetComponent<SpriteRenderer>();
 
@@ -54,12 +66,27 @@ public class playableCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(skill!= true && Time.time >= skillTimer + skillSpeed)
+        {
+            skill = true;
+            Debug.Log("Skill Activated");
+            skillTimer = Time.time;
+        }
+        else if(skill == true && Time.time >= skillTimer + skillLength)
+        {
+            skill = false;
+            Debug.Log("Skill Deactivated");
+            skillTimer = Time.time;
+        }
+        
+
         if (attacking)
         {
             //search for enemies and attack if there are any
             enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-
+            if(!skill)
+            {
             if (enemies.Length > 0)
             {
                 if (Time.time >= attackTimer + (5f * atkSpeed))
@@ -87,7 +114,36 @@ public class playableCharacter : MonoBehaviour
                 //attacking = false;
 
             }
+            }
+            else
+            {
+                   if (Time.time >= attackTimer + (5f * atkSpeed))
+                {
+                    if(classType == "Barbarian")
+                    {
+                        int ran = Random.Range(0, enemies.Length - 1);
+                        targetEnemy = enemies[ran];
+                        returnPosition = gameObject.transform.position;
 
+
+                        physAttacking = true;
+                        attacking = false;
+                    }
+                    else if(classType == "Wizard")
+                    {
+                        magicAttack();
+                    }
+                    else if(classType == "Thief")
+                    {
+                        foreach(GameObject enemy in enemies)
+                        {
+                            enemy.SendMessage("takeDamage", attack/enemies.Length);
+                            attackTimer = Time.time;
+                        }
+                     }
+
+                }
+            }
         }
         else if (physAttacking == true)
         {
@@ -123,6 +179,7 @@ public class playableCharacter : MonoBehaviour
 
     void physicalAttack(GameObject enemy)
     {
+        
         /*Debug.Log(attack);
 
         if (enemies.Length == 1)
@@ -135,7 +192,7 @@ public class playableCharacter : MonoBehaviour
             
             enemies[random].SendMessage("takeDamage", attack);
         }*/
-
+        animator.SetTrigger("Attacking");
         enemy.SendMessage("takeDamage", attack);
         Debug.Log(targetEnemy);
 
@@ -145,7 +202,6 @@ public class playableCharacter : MonoBehaviour
 
     void magicAttack()
     {
-        Debug.Log(magic);
 
 
         /*if (enemies.Length == 1)
@@ -163,6 +219,7 @@ public class playableCharacter : MonoBehaviour
 
         if (gameObject != null)
         {
+            animator.SetTrigger("Attacking");
             GameObject newBullet = Instantiate(bullet, shotSpawn.transform.position, shotSpawn.transform.rotation);
             newBullet.SendMessage("setDamage", magic);
         }
@@ -175,6 +232,7 @@ public class playableCharacter : MonoBehaviour
 
     void takeDamage(int dam)
     {
+        animator.SetTrigger("Hurt");
         hp -= dam;
         healthBar.value = hp;
 
@@ -206,5 +264,12 @@ public class playableCharacter : MonoBehaviour
     {
         hp += health;
     }
+
+    void setClass(string classs)
+    {
+        classType = classs;
+    }
+
+   
 
 }
