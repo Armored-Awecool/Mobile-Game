@@ -7,7 +7,6 @@ public class Wizard : combatClass
 
     void Start()
     {
-        Transform head = this.gameObject.GetComponent<playableCharacter>().head;
         attack = -4;
 
         magic = 40;
@@ -22,7 +21,7 @@ public class Wizard : combatClass
 
 
         GameObject playerHat = Instantiate(hat);
-        playerHat.transform.SetParent(head);
+        playerHat.transform.SetParent(this.gameObject.transform);
 
         playerHat.transform.localPosition = new Vector3(0, 1f, 0);
 

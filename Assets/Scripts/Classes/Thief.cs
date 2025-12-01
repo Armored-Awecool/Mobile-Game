@@ -7,7 +7,6 @@ public class Thief : combatClass
 
     void Start()
     {
-        Transform head = this.gameObject.GetComponent<playableCharacter>().head;
         attack = 10;
 
         magic = 2;
@@ -22,7 +21,7 @@ public class Thief : combatClass
 
 
         GameObject playerHat = Instantiate(hat);
-        playerHat.transform.SetParent(head);
+        playerHat.transform.SetParent(this.gameObject.transform);
 
         playerHat.transform.localPosition = new Vector3(0, 0.5f, 0);
 
