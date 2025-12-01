@@ -77,7 +77,7 @@ public class InputSave : MonoBehaviour
         }
         else
         {
-            Debug.Log("Save Taken");
+           
             return;
             
         }
