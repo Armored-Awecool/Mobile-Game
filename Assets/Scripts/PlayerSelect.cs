@@ -1,15 +1,16 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 //is prefab
 
 
 public class PlayerSelect : MonoBehaviour
 {
-    bool IsCivilan;
-    bool IsBarbarian;
-    bool IsThief;
-    bool IsWizard;
+  public  bool IsCivilan;
+  public  bool IsBarbarian;
+   public bool IsThief;
+   public bool IsWizard;
 
     char sign;
 
@@ -25,12 +26,23 @@ public class PlayerSelect : MonoBehaviour
     public TextMeshProUGUI defenseText;
     public TextMeshProUGUI speedText;
 
+    public Image CivPic;
+    public Image MagPic;
+    public Image BarPic;
+    public Image ThiefPic;
+    public Image BasePic;
+
     public StatsMenu stats;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         extraAttack = 0; extraMagic = 0; extraDefense = 0; extraSpeed = 0;
+        BasePic.enabled = true;
+        CivPic.enabled = false;
+        MagPic.enabled = false;
+        BarPic.enabled = false;
+        ThiefPic.enabled = false;
         Screen.orientation = ScreenOrientation.LandscapeLeft;
 
     }
@@ -109,21 +121,45 @@ public class PlayerSelect : MonoBehaviour
             extraAttack = 1; extraMagic = -1; extraDefense = 0; extraSpeed = 2;
            valueForSign();
 
+            BasePic.enabled = false;
+            CivPic.enabled = true;
+            MagPic.enabled = false;
+            BarPic.enabled = false;
+            ThiefPic.enabled = false;
+
         }
         else if (IsBarbarian)
         {
             extraAttack = 3; extraMagic = -2; extraDefense = 2; extraSpeed = 0;
             valueForSign();
+
+            BasePic.enabled = false;
+            CivPic.enabled = false;
+            MagPic.enabled = false;
+            BarPic.enabled = true;
+            ThiefPic.enabled = false;
         }
         else if (IsThief)
         {
             extraAttack = 1; extraMagic = 0; extraDefense = -1; extraSpeed = 3;
            valueForSign();
+
+            BasePic.enabled = false;
+            CivPic.enabled = false;
+            MagPic.enabled = false;
+            BarPic.enabled = false;
+            ThiefPic.enabled = true;
         }
         else if (IsWizard)
         {
             extraAttack = 1; extraMagic = 3; extraDefense = -1; extraSpeed = 0;
             valueForSign();
+
+            BasePic.enabled = false;
+            CivPic.enabled = false;
+            MagPic.enabled = true;
+            BarPic.enabled = false;
+            ThiefPic.enabled = false;
         }
 
     }

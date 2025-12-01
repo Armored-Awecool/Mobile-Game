@@ -1,8 +1,9 @@
 using System.Collections;
 using TMPro;
-
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 //is prefab
 public class StatsMenu : MonoBehaviour
 {
@@ -18,6 +19,15 @@ public class StatsMenu : MonoBehaviour
 
     public TextMeshProUGUI totalMoney;
 
+    public Image CivPic;
+    public Image MagPic;
+    public Image BarPic;
+    public Image ThiefPic;
+    public Image BasePic;
+
+    public TextMeshProUGUI PlayerClass;
+
+    public PlayerSelect selections;
 
     public int attackLevel;
     public int magicLevel;
@@ -75,7 +85,12 @@ public class StatsMenu : MonoBehaviour
         defenseLevel = SAVE.SaveFile.Hero1.Defense;
         speedLevel = SAVE.SaveFile.Hero1.Speed;
         UpdateUI();
-         
+
+        BasePic.enabled = true;
+        CivPic.enabled = false;
+        MagPic.enabled = false;
+        BarPic.enabled = false;
+        ThiefPic.enabled = false;
 
     }
 
@@ -171,6 +186,59 @@ public class StatsMenu : MonoBehaviour
         {
             ShowTooltip(FeedbackText);
             needToStop = true;
+        }
+    }
+
+    public void WhatClass()
+    {
+        if (selections.IsCivilan)
+        {
+            
+
+            BasePic.enabled = false;
+            CivPic.enabled = true;
+            MagPic.enabled = false;
+            BarPic.enabled = false;
+            ThiefPic.enabled = false;
+
+            PlayerClass.text = "PlayerClass: Civilian";
+
+        }
+        else if (selections.IsBarbarian)
+        {
+           
+
+            BasePic.enabled = false;
+            CivPic.enabled = false;
+            MagPic.enabled = false;
+            BarPic.enabled = true;
+            ThiefPic.enabled = false;
+
+            PlayerClass.text = "PlayerClass: Barbarian";
+        }
+        else if (selections.IsThief)
+        {
+          
+
+            BasePic.enabled = false;
+            CivPic.enabled = false;
+            MagPic.enabled = false;
+            BarPic.enabled = false;
+            ThiefPic.enabled = true;
+
+            PlayerClass.text = "PlayerClass: Thief";
+        }
+        else if (selections.IsWizard)
+        {
+           
+
+            BasePic.enabled = false;
+            CivPic.enabled = false;
+            MagPic.enabled = true;
+            BarPic.enabled = false;
+            ThiefPic.enabled = false;
+
+            PlayerClass.text = "PlayerClass: Wizard";
         }
     }
 

@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         optionsPanel.gameObject.SetActive(false);
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
     public void contiune()//makes sure your update scene is number 2
     {
