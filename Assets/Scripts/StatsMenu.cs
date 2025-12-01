@@ -19,16 +19,6 @@ public class StatsMenu : MonoBehaviour
 
     public TextMeshProUGUI totalMoney;
 
-    public Image CivPic;
-    public Image MagPic;
-    public Image BarPic;
-    public Image ThiefPic;
-    public Image BasePic;
-
-    public TextMeshProUGUI PlayerClass;
-
-    public PlayerSelect selections;
-
     public int attackLevel;
     public int magicLevel;
     public int defenseLevel;
@@ -86,11 +76,7 @@ public class StatsMenu : MonoBehaviour
         speedLevel = SAVE.SaveFile.Hero1.Speed;
         UpdateUI();
 
-        BasePic.enabled = true;
-        CivPic.enabled = false;
-        MagPic.enabled = false;
-        BarPic.enabled = false;
-        ThiefPic.enabled = false;
+    
 
     }
 
@@ -189,59 +175,7 @@ public class StatsMenu : MonoBehaviour
         }
     }
 
-    public void WhatClass()
-    {
-        if (selections.IsCivilan)
-        {
-            
-
-            BasePic.enabled = false;
-            CivPic.enabled = true;
-            MagPic.enabled = false;
-            BarPic.enabled = false;
-            ThiefPic.enabled = false;
-
-            PlayerClass.text = "PlayerClass: Civilian";
-
-        }
-        else if (selections.IsBarbarian)
-        {
-           
-
-            BasePic.enabled = false;
-            CivPic.enabled = false;
-            MagPic.enabled = false;
-            BarPic.enabled = true;
-            ThiefPic.enabled = false;
-
-            PlayerClass.text = "PlayerClass: Barbarian";
-        }
-        else if (selections.IsThief)
-        {
-          
-
-            BasePic.enabled = false;
-            CivPic.enabled = false;
-            MagPic.enabled = false;
-            BarPic.enabled = false;
-            ThiefPic.enabled = true;
-
-            PlayerClass.text = "PlayerClass: Thief";
-        }
-        else if (selections.IsWizard)
-        {
-           
-
-            BasePic.enabled = false;
-            CivPic.enabled = false;
-            MagPic.enabled = true;
-            BarPic.enabled = false;
-            ThiefPic.enabled = false;
-
-            PlayerClass.text = "PlayerClass: Wizard";
-        }
-    }
-
+    
     public void loadGame()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
