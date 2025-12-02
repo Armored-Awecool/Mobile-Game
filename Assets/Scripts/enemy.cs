@@ -231,7 +231,7 @@ public class enemy : MonoBehaviour
             Ray raymobile = Camera.main.ScreenPointToRay(screenPositionMobile);
             RaycastHit hit;
 
-            if (/*Physics.Raycast(ray, out hit) ||*/ Physics.Raycast(raymobile, out hit))
+            if (Physics.Raycast(ray, out hit) || Physics.Raycast(raymobile, out hit))
             {
                 if (hit.collider.gameObject == gameObject)
                 {

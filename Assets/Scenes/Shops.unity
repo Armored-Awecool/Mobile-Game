@@ -3840,7 +3840,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Construction mini hat gives you +20 Defense for 2 minutes.
+  m_text: Construction mini hat gives you +20 Defense for this Dungeon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5060,16 +5060,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Gives you an over all buff for 5 minutes
-
-    +30 Defense
-
-    +30 Attack
-
-    +30
-    Magic
-
-    +10% Speed
+  m_text: 'Doubles attack speed for this Dungeon
 
 '
   m_isRightToLeft: 0
@@ -8802,7 +8793,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Spikey mini cap gives you +20 Attack for 2 minutes.
+  m_text: 'Spikey mini cap gives you +20 Attack for this Dungeon
 
 '
   m_isRightToLeft: 0
