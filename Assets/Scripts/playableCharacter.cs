@@ -263,6 +263,7 @@ public class playableCharacter : MonoBehaviour
         animator.SetTrigger("Hurt");
         hp -= dam;
         healthBar.value = hp;
+        AudioManager.Instance.PlayDamage();
 
         if (hp <= 0)
         {

@@ -86,8 +86,9 @@ public class enemy : MonoBehaviour
             }
             else
             {
+                AudioManager.Instance.PlayGameOver();
                 Save.SaveGame();
-                SceneManager.LoadScene(2);
+                Invoke("ReturnToMenu", 2);
             }
 
         }
@@ -121,6 +122,11 @@ public class enemy : MonoBehaviour
                 attackTimer = Time.time;
             }
         }
+    }
+
+    void ReturnToMenu()
+    {
+        SceneManager.LoadScene(2);
     }
 
     void physicalAttack(GameObject player)
@@ -162,6 +168,7 @@ public class enemy : MonoBehaviour
     {
         hp -= dam;
         healthBar.value = hp;
+        AudioManager.Instance.PlayDamage();
 
         if (hp <= 0)
         {
