@@ -160,10 +160,22 @@ MonoBehaviour:
   attack: 10
   magic: 15
   atkSpeed: 1.2
+  clickSpeed: 0.5
   hp: 100
   shotSpawn: {fileID: 2742778330965636871}
   bullet: {fileID: 1354215379933650089, guid: 35d21bf64341eb344a86fab90e2a9a92, type: 3}
   healthBar: {fileID: 2757439822355265528}
+  clickAction:
+    m_Name: Click
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8eb16076-051c-47ed-a09a-7d1e4bd93139
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  tap: 0
+  hold: 0
 --- !u!1001 &5703579202095709809
 PrefabInstance:
   m_ObjectHideFlags: 0

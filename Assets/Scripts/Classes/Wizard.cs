@@ -24,7 +24,7 @@ public class Wizard : combatClass
         GameObject playerHat = Instantiate(hat);
         playerHat.transform.SetParent(head);
 
-        playerHat.transform.localPosition = new Vector3(0, 1f, 0);
+        playerHat.transform.localPosition = new Vector3(0, .4f, 0);
 
         this.gameObject.SendMessage("classAttack", attack);
         this.gameObject.SendMessage("classMagic", magic);

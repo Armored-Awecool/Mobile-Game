@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
    
-
+    float oldTime;
     public static bool GameIsPaused = false; 
 
     public GameObject pauseMenuUI;
@@ -13,13 +13,13 @@ public class PauseMenu : MonoBehaviour
     public void PauseButton()
     {
   pauseMenuUI.gameObject.SetActive(true);
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
         GameIsPaused = true; 
     }
 
     public void LoadMenu()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = oldTime;
         SceneManager.LoadScene(0); 
         Screen.orientation = ScreenOrientation.LandscapeLeft;
     }

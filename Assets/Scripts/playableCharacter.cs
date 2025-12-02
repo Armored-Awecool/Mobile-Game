@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using TMPro;
 
 public class playableCharacter : MonoBehaviour
 {
@@ -21,12 +24,16 @@ public class playableCharacter : MonoBehaviour
 
     public int hp;
 
-    float attackTimer, skillTimer;
+    float attackTimer, skillTimer,clickTimer;
+
+    float clickSpeed = 0.5f;
 
     float skillSpeed = 30f;
     float skillLength = 10f;
 
     string classType;
+
+    public bool tap, hold;
 
     GameObject[] enemies;
 
@@ -44,9 +51,20 @@ public class playableCharacter : MonoBehaviour
 
     Animator animator;
 
+    public InputAction clickAction;
+    Material material;
+
+    int skillTapCount =0;
+
+    public TMP_Text skillText;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {   
+    {   Renderer rend = GetComponent<Renderer>();
+        material = rend.material;
+        tap = true;
+        hold = false;
+
         string heroName =gameObject.name;
         animator = GetComponent<Animator>();
         attack += SAVE.SaveFile.Hero1.Attack;
@@ -57,25 +75,32 @@ public class playableCharacter : MonoBehaviour
         if(heroName == "Hero1")
         {
             classType = SAVE.SaveFile.Hero1.ClassType;
+            Debug.Log(classType);
             Component newComponent = gameObject.AddComponent(Type.GetType(classType));
         }
         else if(heroName == "Hero2")
         {
             classType = SAVE.SaveFile.Hero2.ClassType;
+            Debug.Log(classType);
             Component newComponent = gameObject.AddComponent(Type.GetType(classType));
         }
         else if(heroName == "Hero3")
         {
             classType = SAVE.SaveFile.Hero3.ClassType;
+            Debug.Log(classType);
             Component newComponent = gameObject.AddComponent(Type.GetType(classType));
         }
         else if(heroName == "Hero4")
         {
             classType = SAVE.SaveFile.Hero4.ClassType;
+            Debug.Log(classType);
             Component newComponent = gameObject.AddComponent(Type.GetType(classType));  
         }
         
-
+        if(classType == "None")
+        {
+            skillSpeed = 9999f;
+        }
         attacking = true;
         attackTimer = Time.time;
         skillTimer = Time.time;
@@ -84,6 +109,18 @@ public class playableCharacter : MonoBehaviour
 
         ResetSlider();
     }
+
+    void OnEnable()
+        {
+            clickAction.Enable();
+            clickAction.performed += OnClickPerformed;
+        }
+
+        void OnDisable()
+        {
+            clickAction.performed -= OnClickPerformed;
+            clickAction.Disable();
+        }
 
     public void ResetSlider() //Resets the health bar
     {
@@ -97,12 +134,14 @@ public class playableCharacter : MonoBehaviour
         if(skill!= true && Time.time >= skillTimer + skillSpeed)
         {
             skill = true;
+            skillText.gameObject.SetActive(true);
             Debug.Log("Skill Activated");
             skillTimer = Time.time;
         }
         else if(skill == true && Time.time >= skillTimer + skillLength)
         {
             skill = false;
+            skillText.gameObject.SetActive(false);
             Debug.Log("Skill Deactivated");
             skillTimer = Time.time;
         }
@@ -261,7 +300,7 @@ public class playableCharacter : MonoBehaviour
     void takeDamage(int dam)
     {
         animator.SetTrigger("Hurt");
-        hp -= dam;
+        hp -= dam/(defense/2);
         healthBar.value = hp;
         AudioManager.Instance.PlayDamage();
 
@@ -298,6 +337,47 @@ public class playableCharacter : MonoBehaviour
     {
         classType = classs;
     }
+
+    private void OnClickPerformed(InputAction.CallbackContext context)
+        {
+            if(tap){
+            Vector2 screenPosition = Mouse.current.position.ReadValue(); 
+            Vector2 screenPositionMobile = Touchscreen.current.primaryTouch.position.ReadValue();
+
+            Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+            Ray raymobile = Camera.main.ScreenPointToRay(screenPositionMobile);
+            RaycastHit hit;
+
+            if (/*Physics.Raycast(ray, out hit) ||*/ Physics.Raycast(raymobile, out hit))
+            {
+                if (hit.collider.gameObject == gameObject)
+                {
+                    clickSkill();
+                }
+            }
+        }
+        }
+
+        public void clickSkill()
+    {
+        if (Time.time >= clickTimer + clickSpeed)
+                    {
+                        Debug.Log("Target GameObject " + gameObject.name + " was clicked/touched!");
+                        if(!skill)
+                    {
+                        skillTapCount++;
+                        if(skillTapCount >=5)
+                    {
+                        skill = true;
+                            skillText.gameObject.SetActive(true);
+                        Debug.Log("Skill Activated");
+                        skillTimer = Time.time;
+                        skillTapCount =0;
+                    }
+                }
+                }
+    }
+
 
    
 

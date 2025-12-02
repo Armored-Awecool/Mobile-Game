@@ -113,10 +113,10 @@ public class StatsMenu : MonoBehaviour
 
         if (TotalMoneyCount >= upgradeACost)
         {
+            TotalMoneyCount -= upgradeACost;
             upgradeACost += 50;
             SAVE.addHero1Attack();
             attackLevel = SAVE.SaveFile.Hero1.Attack;
-            TotalMoneyCount -= upgradeACost;
             UpdateUI();
         }
         else
@@ -130,10 +130,10 @@ public class StatsMenu : MonoBehaviour
     {
         if (TotalMoneyCount >= upgradeMCost)
         {
+            TotalMoneyCount -= upgradeMCost;
             upgradeMCost += 50;
             SAVE.addHero1Magic();
             magicLevel = SAVE.SaveFile.Hero1.Magic;
-            TotalMoneyCount -= upgradeMCost;
             UpdateUI();
         }
         else
@@ -146,10 +146,11 @@ public class StatsMenu : MonoBehaviour
     {
         if (TotalMoneyCount >= upgradeDCost)
         {
+            TotalMoneyCount -= upgradeDCost;
             upgradeDCost += 50;
             SAVE.addHero1Defense();
+            SAVE.SaveFile.Hero1.Health+=10;
             defenseLevel = SAVE.SaveFile.Hero1.Defense;
-            TotalMoneyCount -= upgradeDCost;
             UpdateUI();
         }
         else
@@ -162,10 +163,10 @@ public class StatsMenu : MonoBehaviour
     {
         if (TotalMoneyCount >= upgradeSCost)
         {
+            TotalMoneyCount -= upgradeSCost;
             upgradeSCost += 50;
             SAVE.addHero1Speed();
             speedLevel = SAVE.SaveFile.Hero1.Speed;
-            TotalMoneyCount -= upgradeSCost;
             UpdateUI();
         }
         else
@@ -180,6 +181,12 @@ public class StatsMenu : MonoBehaviour
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         SceneManager.LoadScene(3);
+    }
+
+    public void loadHardMode()
+    {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        SceneManager.LoadScene(5);
     }
     public void OpenShop()
     {

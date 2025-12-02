@@ -137,10 +137,21 @@ MonoBehaviour:
   attack: 50
   magic: 40
   atkSpeed: 0.82
+  defense: 0
   hp: 1000
   healthBar: {fileID: 2009473471176335642}
   shotSpawn: {fileID: 105424446100567936}
   bullet: {fileID: 923419777556442074, guid: 132352466d6cee246937840bc3c5a6b1, type: 3}
+  head: {fileID: 0}
+  clickAction:
+    m_Name: Click
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2f49532b-769d-416f-832c-674e1686f8b5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1001 &8250698429231098003
 PrefabInstance:
   m_ObjectHideFlags: 0

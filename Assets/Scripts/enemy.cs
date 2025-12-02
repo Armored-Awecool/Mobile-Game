@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class enemy : MonoBehaviour
 {
@@ -14,11 +15,11 @@ public class enemy : MonoBehaviour
 
     public int magic;
 
-    public float atkSpeed;
+    public float atkSpeed, clickSpeed = 0.5f;
 
     public int hp;
 
-    float attackTimer;
+    float attackTimer, clickTimer;
 
     GameObject[] players;
 
@@ -30,22 +31,52 @@ public class enemy : MonoBehaviour
 
     public Slider healthBar; //The health bar object
 
+    bool gameOver;
+
+    public InputAction clickAction;
+
+    int skillTapCount =0;
+
+    public bool tap, hold;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
+    {   
+
+        tap= GameObject.FindWithTag("Player").GetComponent<playableCharacter>().tap;
+        hold= GameObject.FindWithTag("Player").GetComponent<playableCharacter>().hold;
         attackTimer = Time.time;
         attacking = true;
         attack = (int)(attack * level);
         magic = (int)(magic * level);
-        hp = (int)(hp * level);
-        money = (int)(money * level);
+        hp = (int)(hp * (level*1.5f));
+        money = (int)(money * (level*1.5f));
+        atkSpeed /= (1 + (level * 0.1f));
 
         GameObject savefile = GameObject.Find("SaveFile");
         Save = savefile.GetComponent<SAVEMANAGER>();
 
         ResetSlider();
     }
+
+    void Awake()
+    {
+        clickAction = new InputAction("TouchPress", type: InputActionType.Button);
+        clickAction.AddBinding("<Pointer>/press");
+    }
+
+    void OnEnable()
+        {
+            clickAction.Enable();
+            clickAction.performed += OnClickPerformed;
+        }
+
+        void OnDisable()
+        {
+            clickAction.performed -= OnClickPerformed;
+            clickAction.Disable();
+        }
 
     public void ResetSlider() //Resets the health bar
     {
@@ -56,6 +87,8 @@ public class enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!gameOver)
+        {
         if (attacking)
         {
             //search for players and attack if there are any
@@ -87,8 +120,8 @@ public class enemy : MonoBehaviour
             else
             {
                 AudioManager.Instance.PlayGameOver();
-                Save.SaveGame();
-                Invoke("ReturnToMenu", 2);
+                gameOver = true;
+                attacking = false;
             }
 
         }
@@ -121,6 +154,12 @@ public class enemy : MonoBehaviour
                 attacking = true;
                 attackTimer = Time.time;
             }
+        }
+        }
+        else
+        {
+                Save.SaveGame();
+                Invoke("ReturnToMenu", 2);
         }
     }
 
@@ -164,7 +203,7 @@ public class enemy : MonoBehaviour
         attackTimer = Time.time;
     }
 
-    void takeDamage(int dam)
+    public void takeDamage(int dam)
     {
         hp -= dam;
         healthBar.value = hp;
@@ -181,4 +220,29 @@ public class enemy : MonoBehaviour
     {
         level = lvl;
     }
+
+    private void OnClickPerformed(InputAction.CallbackContext context)
+        {
+            if(tap){
+            Vector2 screenPosition = Mouse.current.position.ReadValue(); 
+            Vector2 screenPositionMobile = Touchscreen.current.primaryTouch.position.ReadValue();
+
+            Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+            Ray raymobile = Camera.main.ScreenPointToRay(screenPositionMobile);
+            RaycastHit hit;
+
+            if (/*Physics.Raycast(ray, out hit) ||*/ Physics.Raycast(raymobile, out hit))
+            {
+                if (hit.collider.gameObject == gameObject)
+                {
+                    if (Time.time >= clickTimer + clickSpeed)
+                    {
+                        Debug.Log("Target GameObject " + gameObject.name + " was clicked/touched!");
+                        takeDamage((int)healthBar.maxValue / 10); //Deals 10% of enemy health as damage
+                        clickTimer = Time.time;
+                }
+            }
+            }
+        }
+        }
 }

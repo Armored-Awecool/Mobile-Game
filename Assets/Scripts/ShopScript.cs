@@ -41,13 +41,13 @@ public class ShopScript : MonoBehaviour
     public int potionAmount = 200;
 
     public TextMeshProUGUI firstJewelPrice;
-    public int firstJewelAmount = 2500;
+    public int firstJewelAmount = 1;
 
     public TextMeshProUGUI secondJewelPrice;
-    public int secondJewelAmount = 5000;
+    public int secondJewelAmount = 5;
 
     public TextMeshProUGUI thirdJewelPrice;
-    public int thirdJewelAmount = 10000;
+    public int thirdJewelAmount = 10;
 
     public TextMeshProUGUI defFoodPrice;
     public int defFoodAmount = 200;
@@ -97,9 +97,9 @@ public class ShopScript : MonoBehaviour
  
         potionAmount = 200;
 
-        firstJewelAmount = 2500;
-        secondJewelAmount = 5000;
-        thirdJewelAmount = 10000;
+        firstJewelAmount = 1;
+        secondJewelAmount = 5;
+        thirdJewelAmount = 10;
 
         defFoodAmount = 200;
         magFoodAmount = 300;    
@@ -166,14 +166,14 @@ public class ShopScript : MonoBehaviour
 
         potionPrice.text = potionAmount + " Jewels";
 
-        firstJewelPrice.text = firstJewelAmount + " Gold";
-        secondJewelPrice.text = secondJewelAmount + " Gold";
-        thirdJewelPrice.text = thirdJewelAmount + " Gold";
+        firstJewelPrice.text = firstJewelAmount + " USD";
+        secondJewelPrice.text = secondJewelAmount + " USD";
+        thirdJewelPrice.text = thirdJewelAmount + " USD";
 
-        atkFoodPrice.text = atkFoodAmount + " Gold";
-        defFoodPrice.text = defFoodAmount + " Gold";
-        magFoodPrice.text = magFoodAmount + " Gold";
-        speedFoodPrice.text = speedFoodAmount + " Gold";
+        atkFoodPrice.text = atkFoodAmount + " Jewels";
+        defFoodPrice.text = defFoodAmount + " Jewels";
+        magFoodPrice.text = magFoodAmount + " Jewels";
+        speedFoodPrice.text = speedFoodAmount + " Jewels";
 
         totalMoney.text = "GoldAmount: " + FormatNumber(TotalMoneyCount);
         totalJewel.text = "JewelAmount: " + FormatNumber(TotalJewelCount);
@@ -186,8 +186,10 @@ public class ShopScript : MonoBehaviour
         {
 
             TotalJewelCount -= defHatAmount;
+            SAVE.SaveFile.Jewel-=defHatAmount;
             UpdateUI();
-            StartCoroutine(HatTimerDef());
+            SAVE.SaveFile.defHelmetCount+=1;
+            SAVE.SaveGame();
         }
         else
         {
@@ -201,8 +203,10 @@ public class ShopScript : MonoBehaviour
         {
 
             TotalJewelCount -= atkHatAmount;
+            SAVE.SaveFile.Jewel-=atkHatAmount;
             UpdateUI();
-            StartCoroutine(HatTimerAtk());
+            SAVE.SaveFile.atkHelmetCount+=1;
+            SAVE.SaveGame();
         }
         else
         {
@@ -216,8 +220,10 @@ public class ShopScript : MonoBehaviour
         {
 
             TotalJewelCount -= potionAmount;
+            SAVE.SaveFile.Jewel-=potionAmount;
             UpdateUI();
-           StartCoroutine (PotionTimer()); 
+           SAVE.SaveFile.PotionCount+=1;
+            SAVE.SaveGame();
         }
         else
         {
@@ -227,58 +233,40 @@ public class ShopScript : MonoBehaviour
     }
     public void buyfirstJewel()
     {
-        if (TotalMoneyCount >= firstJewelAmount)
-        {
-
-            TotalMoneyCount -= firstJewelAmount;
+    
+            TotalJewelCount += 500;
+            SAVE.SaveFile.Jewel+=500;
+            SAVE.SaveGame();
             UpdateUI();
-            TotalJewelCount += 20;
-        }
-        else
-        {
-            ShowTooltip(FeedbackText);
-            needToStop = true;
-        }
+        
     }
     public void buysecondJewel()
     {
-        if (TotalMoneyCount >= secondJewelAmount)
-        {
-
-            TotalMoneyCount -= secondJewelAmount;
+        
+            TotalJewelCount += 1200;
+            SAVE.SaveFile.Jewel+=1200;
+            SAVE.SaveGame();
             UpdateUI();
-            TotalJewelCount += 50;
-        }
-        else
-        {
-            ShowTooltip(FeedbackText);
-            needToStop = true;
-        }
+       
     }
     public void buythirdJewel()
     {
-        if (TotalMoneyCount >= thirdJewelAmount)
-        {
-
-            TotalMoneyCount -= thirdJewelAmount;
+            TotalJewelCount += 2500;
+            SAVE.SaveFile.Jewel+=2500;
+            SAVE.SaveGame();
             UpdateUI();
-            TotalJewelCount += 100;
-        }
-        else
-        {
-            ShowTooltip(FeedbackText);
-            needToStop = true;
-        }
+
     }
     public void buyDefFood()
     {
-        if (TotalMoneyCount >= defFoodAmount)
+        if (TotalJewelCount >= defFoodAmount)
         {
             
-            TotalMoneyCount -= defFoodAmount;
+            TotalJewelCount -= defFoodAmount;
+            SAVE.SaveFile.Jewel-=defFoodAmount;
             UpdateUI();
-            statsMenu.defenseLevel += 2;
-        }
+            SAVE.SaveFile.Hero1.Defense+=2;
+            SAVE.SaveGame();}
         else
         {
             ShowTooltip(FeedbackText);
@@ -287,12 +275,14 @@ public class ShopScript : MonoBehaviour
     }
     public void buyAtkFood()
     {
-        if (TotalMoneyCount >= atkFoodAmount)
+        if (TotalJewelCount >= atkFoodAmount)
         {
 
-            TotalMoneyCount -= atkFoodAmount;
+            TotalJewelCount -= atkFoodAmount;
+            SAVE.SaveFile.Jewel-=atkFoodAmount;
             UpdateUI();
-            statsMenu.attackLevel += 2;
+           SAVE.SaveFile.Hero1.Attack+=2;
+            SAVE.SaveGame();
         }
         else
         {
@@ -302,12 +292,14 @@ public class ShopScript : MonoBehaviour
     }
     public void buymagFood()
     {
-        if (TotalMoneyCount >= magFoodAmount)
+        if (TotalJewelCount >= magFoodAmount)
         {
 
-            TotalMoneyCount -= magFoodAmount;
+            TotalJewelCount -= magFoodAmount;
+            SAVE.SaveFile.Jewel-=magFoodAmount;
             UpdateUI();
-            statsMenu.magicLevel += 2;
+            SAVE.SaveFile.Hero1.Magic+=2;
+            SAVE.SaveGame();
         }
         else
         {
@@ -317,12 +309,14 @@ public class ShopScript : MonoBehaviour
     }
     public void buyspeedFood()
     {
-        if (TotalMoneyCount >= speedFoodAmount)
+        if (TotalJewelCount >= speedFoodAmount)
         {
 
-            TotalMoneyCount -= speedFoodAmount;
+            TotalJewelCount -= speedFoodAmount;
+            SAVE.SaveFile.Jewel-=speedFoodAmount;
             UpdateUI();
-            statsMenu.speedLevel += 2;
+            SAVE.SaveFile.Hero1.Speed/=1.2f;
+            SAVE.SaveGame();
         }
         else
         {

@@ -22,6 +22,8 @@ public class PlayerSelect : MonoBehaviour
     bool IsThief;
     bool IsWizard;
 
+    public SAVEMANAGER SAVE;
+
     char sign;
 
     int extraAttack;
@@ -91,6 +93,10 @@ public class PlayerSelect : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        GameObject savefile = GameObject.Find("SaveFile");
+        SAVE = savefile.GetComponent<SAVEMANAGER>();
+
         isHero1 = true;
         isHero2 = false;
         isHero3 = false;
@@ -470,7 +476,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic1.enabled = false;
             ThiefPic1.enabled = false;
 
-
+            SAVE.SaveFile.Hero1.ClassType = "None";
+            SAVE.SaveGame();
         }
         else if (IsBarbarian)
         {
@@ -480,7 +487,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic1.enabled = true;
             ThiefPic1.enabled = false;
 
-
+            SAVE.SaveFile.Hero1.ClassType = "Barbarian";
+            SAVE.SaveGame();
         }
         else if (IsThief)
         {
@@ -490,7 +498,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic1.enabled = false;
             ThiefPic1.enabled = true;
 
-
+            SAVE.SaveFile.Hero1.ClassType = "Thief";
+            SAVE.SaveGame();
         }
         else if (IsWizard)
         {
@@ -500,7 +509,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic1.enabled = false;
             ThiefPic1.enabled = false;
 
-
+            SAVE.SaveFile.Hero1.ClassType = "Wizard";
+            SAVE.SaveGame();
         }
     }
 
@@ -517,7 +527,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic2.enabled = false;
             ThiefPic2.enabled = false;
 
-
+            SAVE.SaveFile.Hero2.ClassType = "None";
+            SAVE.SaveGame();
         }
         else if (IsBarbarian)
         {
@@ -527,7 +538,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic2.enabled = true;
             ThiefPic2.enabled = false;
 
-
+            SAVE.SaveFile.Hero2.ClassType = "Barbarian";
+            SAVE.SaveGame();
         }
         else if (IsThief)
         {
@@ -537,7 +549,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic2.enabled = false;
             ThiefPic2.enabled = true;
 
-
+            SAVE.SaveFile.Hero2.ClassType = "Thief";
+            SAVE.SaveGame();
         }
         else if (IsWizard)
         {
@@ -547,7 +560,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic2.enabled = false;
             ThiefPic2.enabled = false;
 
-
+            SAVE.SaveFile.Hero2.ClassType = "Wizard";
+            SAVE.SaveGame();
         }
     }
 
@@ -565,7 +579,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic3.enabled = false;
             ThiefPic3.enabled = false;
 
-
+            SAVE.SaveFile.Hero3.ClassType = "None";
+            SAVE.SaveGame();
         }
         else if (IsBarbarian)
         {
@@ -575,7 +590,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic3.enabled = true;
             ThiefPic3.enabled = false;
 
-
+            SAVE.SaveFile.Hero3.ClassType = "Barbarian";
+            SAVE.SaveGame();
         }
         else if (IsThief)
         {
@@ -585,7 +601,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic3.enabled = false;
             ThiefPic3.enabled = true;
 
-
+            SAVE.SaveFile.Hero3.ClassType = "Thief";
+            SAVE.SaveGame();
         }
         else if (IsWizard)
         {
@@ -595,7 +612,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic3.enabled = false;
             ThiefPic3.enabled = false;
 
-
+            SAVE.SaveFile.Hero3.ClassType = "Wizard";
+            SAVE.SaveGame();
         }
     }
 
@@ -613,7 +631,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic4.enabled = false;
             ThiefPic4.enabled = false;
 
-
+            SAVE.SaveFile.Hero4.ClassType = "None";
+            SAVE.SaveGame();
         }
         else if (IsBarbarian)
         {
@@ -623,7 +642,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic4.enabled = true;
             ThiefPic4.enabled = false;
 
-
+            SAVE.SaveFile.Hero4.ClassType = "Barbarian";
+            SAVE.SaveGame();
         }
         else if (IsThief)
         {
@@ -633,7 +653,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic4.enabled = false;
             ThiefPic4.enabled = true;
 
-
+            SAVE.SaveFile.Hero4.ClassType = "Thief";
+            SAVE.SaveGame();
         }
         else if (IsWizard)
         {
@@ -643,7 +664,8 @@ public class PlayerSelect : MonoBehaviour
             BarPic4.enabled = false;
             ThiefPic4.enabled = false;
 
-
+            SAVE.SaveFile.Hero4.ClassType = "Wizard";
+            SAVE.SaveGame();
         }
     }
 

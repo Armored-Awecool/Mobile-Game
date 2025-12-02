@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public GameObject optionsPanel;
+    public SAVEMANAGER Save;
     /*   public void PlayGame()
        {
            Screen.orientation = ScreenOrientation.LandscapeLeft;
@@ -15,6 +16,8 @@ public class MenuManager : MonoBehaviour
     {
         optionsPanel.gameObject.SetActive(false);
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+        GameObject savefile = GameObject.Find("SaveFile");
+        Save = savefile.GetComponent<SAVEMANAGER>();
     }
     public void contiune()//makes sure your update scene is number 2
     {
@@ -27,6 +30,7 @@ public class MenuManager : MonoBehaviour
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         SceneManager.LoadScene(1);
+        Save.CreateNewSave();
 
         //not sure what scene should go next
        

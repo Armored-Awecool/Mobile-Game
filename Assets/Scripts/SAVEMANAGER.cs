@@ -85,6 +85,9 @@ public class SAVEMANAGER : MonoBehaviour
     {
         public double Money; // this is using totalMoneyCount from StatsMenu.
         public double Jewel; // this is using totalJewelCount from StatsMenu.
+        public int PotionCount;
+        public int atkHelmetCount;
+        public int defHelmetCount;
         public string EquipmentList;
         public int LevelProg; //Lists how many levels the player has beat/shows which they are on
 
@@ -103,7 +106,7 @@ public class SAVEMANAGER : MonoBehaviour
 
         public GameProg()
         {
-            Hero1 = new Character(5, 5, 5, 5, 100, "Empty", "Empty", "Empty", "Default", "None");
+            Hero1 = new Character(5, 5, 5, 1, 50, "Empty", "Empty", "Empty", "Default", "None");
             Hero2 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default", "None");
             Hero3 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default", "None");
             Hero4 = new Character(0, 0, 0, 0, 0, "Empty", "Empty", "Empty", "Default", "None");
@@ -111,6 +114,9 @@ public class SAVEMANAGER : MonoBehaviour
             Jewel = 0;
             EquipmentList = "";
             LevelProg = 0;
+            PotionCount = 0;
+            atkHelmetCount = 0;
+            defHelmetCount = 0;
         }
 
         // public GameProg(double mon, List<string> EL) : this()
@@ -195,7 +201,7 @@ public class SAVEMANAGER : MonoBehaviour
 
     public void addHero1Speed()
     {
-        SaveFile.Hero1.Speed -= 0.05f;
+        SaveFile.Hero1.Speed /= 1.2f;
         SaveGame();
     }
 
