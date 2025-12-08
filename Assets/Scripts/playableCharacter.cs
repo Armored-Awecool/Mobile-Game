@@ -110,11 +110,11 @@ public class playableCharacter : MonoBehaviour
         ResetSlider();
     }
 
-    void OnEnable()
+    /*void OnEnable()
         {
             clickAction.Enable();
             clickAction.performed += OnClickPerformed;
-        }
+        }*/
 
         void Awake()
         {
@@ -122,12 +122,12 @@ public class playableCharacter : MonoBehaviour
                 clickAction.AddBinding("<Pointer>/press");
         }
 
-        void OnDisable()
+        /*void OnDisable()
         {
             clickAction.performed -= OnClickPerformed;
             clickAction.Disable();
         }
-
+    */
     public void ResetSlider() //Resets the health bar
     {
         healthBar.maxValue = hp;
@@ -344,7 +344,7 @@ public class playableCharacter : MonoBehaviour
         classType = classs;
     }
 
-    private void OnClickPerformed(InputAction.CallbackContext context)
+    /*private void OnClickPerformed(InputAction.CallbackContext context)
         {
             if(tap){
             Vector2 screenPosition = Mouse.current.position.ReadValue(); 
@@ -362,7 +362,7 @@ public class playableCharacter : MonoBehaviour
                 }
             }
         }
-        }
+        }*/
 
         public void clickSkill()
     {
