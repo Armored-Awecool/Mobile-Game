@@ -51,7 +51,7 @@ public class playableCharacter : MonoBehaviour
 
     Animator animator;
 
-    public InputAction clickAction;
+    InputAction clickAction;
     Material material;
 
     int skillTapCount =0;
@@ -114,6 +114,12 @@ public class playableCharacter : MonoBehaviour
         {
             clickAction.Enable();
             clickAction.performed += OnClickPerformed;
+        }
+
+        void Awake()
+        {
+                clickAction = new InputAction("TouchPress", type: InputActionType.Button);
+                clickAction.AddBinding("<Pointer>/press");
         }
 
         void OnDisable()
