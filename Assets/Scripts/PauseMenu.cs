@@ -9,6 +9,11 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
    
     public void PauseButton()
     {
@@ -19,7 +24,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        Time.timeScale = oldTime;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0); 
         Screen.orientation = ScreenOrientation.LandscapeLeft;
     }

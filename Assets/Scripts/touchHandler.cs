@@ -73,7 +73,11 @@ public class touchHandler : MonoBehaviour
             if (player != null)
             {
                 player.clickSkill();
-                Debug.Log("Touched player: " + hitObj.name);
+                GameObject tapTextPrefab = Resources.Load<GameObject>("TapText");
+                if (tapTextPrefab != null)
+                {
+                    Instantiate(tapTextPrefab, hit.point, Quaternion.identity);
+                }
                 objectTouchTimer = Time.time;
                 return true;
             }
@@ -84,6 +88,11 @@ public class touchHandler : MonoBehaviour
             if (enemyScript != null && enemyScript.healthBar != null)
             {
                 enemyScript.takeDamage((int)(enemyScript.healthBar.maxValue / 10));
+                GameObject tapTextPrefab = Resources.Load<GameObject>("TapText");
+                if (tapTextPrefab != null)
+                {
+                    Instantiate(tapTextPrefab, hit.point, Quaternion.identity);
+                }
                 objectTouchTimer = Time.time;
                 return true;
             }
